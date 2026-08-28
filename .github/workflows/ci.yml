@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  python:
+    name: Python (uv + pytest + ruff + mypy)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+        with:
+          version: "latest"
+      - name: Sync workspace
+        run: uv sync --all-packages --all-extras
+      - name: Lint
+        run: |
+          uv run --package common ruff check common/src common/tests
+          uv run --package P0-smoke ruff check agents/P0-smoke/src agents/P0-smoke/tests
+      - name: Typecheck
+        run: |
+          uv run --package common mypy common/src
+          uv run --package P0-smoke mypy agents/P0-smoke/src
+      - name: Test (non-eval)
+        run: uv run pytest -v -m "not eval"
+      - name: Format check
+        run: |
+          uv run --package common ruff format --check common/src common/tests
+          uv run --package P0-smoke ruff format --check agents/P0-smoke/src agents/P0-smoke/tests
+
+  typescript:
+    name: TypeScript (Next.js chat UI)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/chat-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: "latest"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: apps/chat-ui/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: pnpm test
