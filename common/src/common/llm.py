@@ -34,7 +34,11 @@ _MODEL_TABLE: dict[TaskName, tuple[str, str]] = {
 }
 
 
-def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel:
+def get_model(
+    project: str,
+    task: TaskName | str = "reasoning",
+    max_tokens: int = 1024,
+) -> BaseChatModel:
     """Return a LangChain chat model for a (project, task) pair.
 
     Args:
@@ -42,6 +46,10 @@ def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel
                  via LangSmith metadata; not the model routing key.
         task: One of "reasoning", "tools", "local", "judge", "cheap".
               Unknown tasks fall back to "reasoning".
+        max_tokens: Output cap sent with each request. OpenRouter defaults
+              to the model's full output budget when unset and rejects
+              (402) requests whose budget exceeds the remaining credits —
+              so a sane explicit cap is set per call.
 
     Returns:
         A configured BaseChatModel. All models are routed through
@@ -63,6 +71,7 @@ def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel
             base_url="https://ollama.com/v1",
             api_key=settings.ollama_cloud_api_key,
             temperature=0,
+            max_tokens=max_tokens,
             max_retries=2,
         )
 
@@ -76,6 +85,7 @@ def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel
         base_url=_OPENROUTER_BASE,
         api_key=settings.openrouter_api_key,
         temperature=0,
+        max_tokens=max_tokens,
         max_retries=2,
     )
 
