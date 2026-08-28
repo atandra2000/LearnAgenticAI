@@ -1,7 +1,7 @@
 """Multi-provider LLM factory.
 
-The portfolio's routing rule (from spec §5):
-    - heavy reasoning (P1, P4, P7)  -> anthropic/claude-sonnet-4.5
+The portfolio's routing rule (spec §5, amended by user directive 2026-08-29):
+    - heavy reasoning (P1, P4, P7)  -> deepseek/deepseek-v4-flash-0731
     - tool-heavy (P2, P5, P8)       -> openai/gpt-4o
     - local/memory (P3, P6)         -> ollama/llama-3.3-70b
     - judge (P9)                    -> anthropic/claude-opus-4
@@ -26,7 +26,7 @@ _OPENROUTER_BASE = "https://openrouter.ai/api/v1"
 
 # (provider, model_id) per task.  OpenRouter keys are 'provider/model'.
 _MODEL_TABLE: dict[TaskName, tuple[str, str]] = {
-    "reasoning": ("anthropic", "claude-sonnet-4.5"),
+    "reasoning": ("deepseek", "deepseek-v4-flash-0731"),
     "tools": ("openai", "gpt-4o"),
     "local": ("ollama", "llama-3.3-70b-versatile"),
     "judge": ("anthropic", "claude-opus-4"),

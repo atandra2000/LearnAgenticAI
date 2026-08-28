@@ -21,7 +21,7 @@ POST /v1/chat/completions
   common.llm.get_model("P0-smoke", task="reasoning")
         │
         ▼
-  LangChain ChatOpenAI (OpenRouter → Claude Sonnet 4.5)
+  LangChain ChatOpenAI (OpenRouter → DeepSeek V4 Flash)
         │
         ▼
   SSE stream: token, token, ..., message_end, trace_meta
@@ -60,4 +60,4 @@ uv run pytest -v
 
 ## Cost
 
-Per 100 runs (single 50-token response): roughly $0.05 with Claude Sonnet 4.5 via OpenRouter.
+Per 100 runs (single 50-token response): well under $0.05 with DeepSeek V4 Flash via OpenRouter.

@@ -15,7 +15,7 @@ def _reset_cache() -> None:
 
 def test_model_id_for_known_tasks() -> None:
     """All known tasks resolve to a string model id."""
-    assert model_id_for("reasoning") == "anthropic/claude-sonnet-4.5"
+    assert model_id_for("reasoning") == "deepseek/deepseek-v4-flash-0731"
     assert model_id_for("tools") == "openai/gpt-4o"
     assert model_id_for("local") == "ollama/llama-3.3-70b-versatile"
     assert model_id_for("judge") == "anthropic/claude-opus-4"
@@ -24,14 +24,14 @@ def test_model_id_for_known_tasks() -> None:
 
 def test_model_id_for_unknown_falls_back() -> None:
     """Unknown task name falls back to the reasoning default."""
-    assert model_id_for("totally-unknown") == "anthropic/claude-sonnet-4.5"
+    assert model_id_for("totally-unknown") == "deepseek/deepseek-v4-flash-0731"
 
 
 def test_get_model_openrouter_route(monkeypatch: pytest.MonkeyPatch) -> None:
     """OpenRouter-routed tasks produce a ChatOpenAI pointing at OpenRouter."""
     monkeypatch.setenv("OPENROUTER_API_KEY", "sk-or-test")
     model = get_model("P1-react-agent", task="reasoning")
-    assert model.model_name == "anthropic/claude-sonnet-4.5"  # type: ignore[attr-defined]
+    assert model.model_name == "deepseek/deepseek-v4-flash-0731"  # type: ignore[attr-defined]
     assert str(model.openai_api_base).rstrip("/").endswith("/api/v1")  # type: ignore[attr-defined]
     assert model.openai_api_key.get_secret_value() == "sk-or-test"  # type: ignore[attr-defined]
 
