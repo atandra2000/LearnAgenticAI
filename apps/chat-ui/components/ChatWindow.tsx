@@ -75,6 +75,18 @@ export function ChatWindow() {
           return next;
         });
       }
+    } catch (err) {
+      if (abortRef.current?.signal.aborted) {
+        // User pressed Stop — abort is intended, stop silently.
+        return;
+      }
+      const message = err instanceof Error ? err.message : String(err);
+      accumulated.content += `\n\n[error: ${message}]`;
+      setMessages((prev) => {
+        const next = [...prev];
+        next[next.length - 1] = { ...accumulated };
+        return next;
+      });
     } finally {
       setBusy(false);
       abortRef.current = null;
