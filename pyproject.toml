@@ -1,0 +1,31 @@
+[project]
+name = "learn-agentic-ai"
+version = "0.0.0"
+description = "Portfolio of 10 agentic AI projects on the LangChain/LangGraph/LangSmith stack"
+requires-python = ">=3.11,<3.13"
+readme = "README.md"
+
+[tool.uv.workspace]
+members = ["common", "agents/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.mypy]
+strict = true
+python_version = "3.11"
+ignore_missing_imports = true
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["common/tests", "agents/*/tests"]
+addopts = "-ra --strict-markers"
+markers = [
+    "integration: marks tests that require docker services (postgres, qdrant)",
+    "eval: marks tests that call LLM APIs (slow, costs money)",
+]
