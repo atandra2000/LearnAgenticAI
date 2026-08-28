@@ -49,15 +49,14 @@ def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel
     """
     if task not in _MODEL_TABLE:
         task = "reasoning"
-    provider, model_id = _MODEL_TABLE[task]  # type: ignore[index]
+    provider, model_id = _MODEL_TABLE[task]
     settings = get_settings()
 
     # Local path: use Ollama Cloud Pro via OpenAI-compatible API
     if provider == "ollama":
         if not settings.ollama_cloud_api_key:
             raise RuntimeError(
-                "OLLAMA_CLOUD_API_KEY is not set. "
-                "Set it in .env to use the 'local' task."
+                "OLLAMA_CLOUD_API_KEY is not set. Set it in .env to use the 'local' task."
             )
         return ChatOpenAI(
             model=model_id,
@@ -70,8 +69,7 @@ def get_model(project: str, task: TaskName | str = "reasoning") -> BaseChatModel
     # All other tasks route through OpenRouter (OpenAI-compatible)
     if not settings.openrouter_api_key:
         raise RuntimeError(
-            "OPENROUTER_API_KEY is not set. "
-            "Set it in .env to use OpenRouter-routed tasks."
+            "OPENROUTER_API_KEY is not set. Set it in .env to use OpenRouter-routed tasks."
         )
     return ChatOpenAI(
         model=f"{provider}/{model_id}",
@@ -86,5 +84,5 @@ def model_id_for(task: TaskName | str) -> str:
     """Return the raw model id for a task (useful for cost reports)."""
     if task not in _MODEL_TABLE:
         task = "reasoning"
-    provider, model_id = _MODEL_TABLE[task]  # type: ignore[index]
+    provider, model_id = _MODEL_TABLE[task]
     return f"{provider}/{model_id}"

@@ -2,11 +2,7 @@
 
 from __future__ import annotations
 
-import os
-from pathlib import Path
-
 import pytest
-from pydantic import ValidationError
 
 from common.config import Settings, get_settings
 
