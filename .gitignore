@@ -54,3 +54,6 @@ docker/data/
 # Logs
 logs/
 *.log
+
+# Serena tool state
+.serena/
