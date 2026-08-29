@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:11992a7a5a3a07e7bb00c387a4663399aaa6a2a468662abf510a7e2d636ff8c3",
+  "claims": [
+    {
+      "id": "claim_03077bf841f84026a505fd8e0796e26c",
+      "statement": "`ChatWindow` owns in-memory messages, input, busy state, and the active `AbortController`; it rejects blank or concurrent sends, optimistically appends a user message and empty assistant message, and sends history through the new user turn.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/components/ChatWindow.tsx#L11-L51",
+          "version": "repo-lines-v1:sha256:1ad66414d8043f9146ca458fa0d3f236ce710fa343632b2fd299de2813afe48b:eyJzZWxlY3RlZExpbmVDb3VudCI6NDEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImM4ODU4MGVkNzg2ZTMzM2RlMmJlOGVjZjJhOGRjOWE0NzA1NmE5OGJlMzcxMmIzM2FkOWY4ZjI4OThmZjk3ODQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyNTc1YjYzZWI4NDM3MTA0ZWM2YjRhOWI4Y2RhYWViYjYyNzIwOGRmY2ZhOWVkNWU1ZThkMWJjNmY1NWE5MDkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM1M2U1NmI4Nzc1MGI3Y2VlN2E3ZDY1M2Y4MjViZDg0MDIyODhiZGZmMmJhYWM4YzdlMzY1OWQxODk2ODMxNWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjM5ODdkZmE2YWRkZWVkMmQ5ZjkwNDEwZWJkZjljNGM1NGJiYzE3Zjc4NTY4ZmM4NjhmZjZlODE5NDc2M2M3YWQifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f1d0481c2c744a4b9011e08adacce65f",
+      "statement": "The browser posts JSON `{ messages, stream: true }` to relative `POST /v1/chat/completions`, while the Next.js rewrite forwards `/v1/:path*` to `NEXT_PUBLIC_AGENT_BASE_URL` with `http://localhost:8000` as the fallback.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/.env.example#L1-L2",
+          "version": "repo-lines-v1:sha256:56fd76fb947ca793580f1fbf73b1fdce5085306e3ce66a3ae9de5e90bbf92a4c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk4Nzg3Mzc5ZDhmNzI5MDE2ODEyNzkwYzI3N2FkOGQyMTY0ZGM0MWQ1Y2RkMjI0YmMyY2JkMTlmNzM1ODY3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmIzNGMwYTgxNTM1MDI3NDNhNzUwZDYzNTcxMDFjYmNmNjM3ODQyOTk3YjNkYmVkN2M4ZjBiMWUwNDE3MWEzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://apps/chat-ui/lib/api.ts#L20-L29",
+          "version": "repo-lines-v1:sha256:b3cb4cc72254581d205d690c42abde5d49d36e9a5c0a3c0f7b4f9cbc3da59eac:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2OTE3MDg5MTEyN2JmYzNkZDM4OTJhODczYmY0OGYwNTA1NTc5YTZjMWFhODQwMWM4MmNjMmUzYWZiMzVmYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjNhM2U0NmY5NDI3NmI2ZjZmNGVkMWYwMmFmNzhiZWY2YTJlZTFjNDM5ZGQ1NTg0Yjk3Mzk0ODMxMzIxNGQyYjciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5MTQ4Mzg0NzgwN2ExNDRiMmZmMWQwOTRmNjI1MDE3NGJkMjE2ODQ1ZGNkNzk2OGI3ZTYxY2UzY2I5ODg5OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImU5MGI0ODVhNDJhZTc3ZmNlOTJhMTJiOThmOTZjZGU4MTkzZjU5ODk5NTZiN2I2MjA0MjliZTZmMGRjNDA3NzMifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/next.config.ts#L3-L13",
+          "version": "repo-lines-v1:sha256:2c32311e900754c60a56bb7965c84cebd2ca47e2df138457fbfca593b2f80587:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkYzMxMjNkODcwZGQwNjg5MmE2YTVkMTI3MWJiMjlkZDY3YjI4ZDMzNjY5NWI0MjMyYTZlMzUxZjE2ODk0NjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRkNWNkMmZiNGYzZGY4ODQ1MTUyNTViMzk1MjNmMmY4YjU0NzJiZWVhOWY1NjZmZmNhMjA0ZGI4MDI1NjEwNDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMyNWIzNWQzMWY0ZTI4YmM0MzVjMzY3ZGY3YmI1ZGQwMjljMzM3YWUyNTM0NzljOWZmZjY1NWM3ZDRhMDk1YWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQ0MGZlOTQ3ZWQyNDgxMGRiZTYxNGQzMTMyMWU0ODRkMzZhZGE3ZTJjMWI0ZjAxNDlmYWI3NjAyMTYyZmNjYTcifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_03b521177bce449bb47c98535f092917",
+      "statement": "P0 validates that a completion request has a nonempty list of `system`, `user`, or `assistant` messages, preserves their order when translating them to LangChain messages, and always responds with `text/event-stream`.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/server.py#L26-L61",
+          "version": "repo-lines-v1:sha256:3dade4be84fa7a2d31bd850f5d8cafd6e857d63b070fcfb0cee3733f900a298e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjYTRlNTdmOWI5MTYzOWE2ZjI2MjJjN2FmYzA5ZTc4M2Y1ZTVlZmM1YjJkODg4ZDFjMDZlMzliODUyNjMwZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViYTZkYjA2NTAyNmU1ZDZiMmUyODdiMmUzZGJjMGNhOTUzZjBjYjZkMmIwYmZhMmY1NmIxMWY0Yjc0MmMzOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjMzZGYzMWI5NGJmODg1MWQ0NzFhMTYxODFhZjMwYjY4NmYxNDMwODNjYTg1ZGRlMmQyZTU1ZmI2NDE3NWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L16-L31",
+          "version": "repo-lines-v1:sha256:9cf617b262d5617986d80446894a4166d5ef03d3e03576f4f8e4ed97cb666e4f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmZjU2YzFhNjRiNzQ3MDg3ZjZkODM2MzRiNzk2ZTI2Zjg2MjNmNGVhMWRiYWZhNzlkYjljMWRkNTE4YWFiOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4MDc1N2I4MzZiNjEyZWJhZjYzZTBmMzkzNWJiZGFhYmU5YmFjNjQxNDAwNDUwMDk3MTdlODBiY2I3NjIxNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwNzk5Yjg4MGQyZjBlMjhjYWM0Zjk2ZTg5NGIxMWYwNGY2ODFmNjdkYjk1ZDUwMGJkNzQ1Y2JkNDBmMzc0ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwZjk0MTUzMjhhMDdkNzkzMDY4MmViYzgxMjUwZTRiYjJkYWQ4ZWQxODc2YThhMTc2NzRmMTAwMzRiY2QwYzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_af72dd007a2040bfa78273db89453bfc",
+      "statement": "Each valid P0 request generates a UUID run ID and scopes generation in `setup(\"P0-smoke\")`; the tracing helper temporarily configures LangSmith environment variables and restores their prior values on exit.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/server.py#L48-L61",
+          "version": "repo-lines-v1:sha256:698f17ef7c5213db20f93e9743683b11a773c03368dfb3b34b8a1d2d527cf856:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkYzlkZjYxOTVmOTU3MmVhMmYwN2JiM2Q3Y2RlNGM0MTNjNjY1ZmMzNTY4YTM2ZGEzMWIyYzgxMjI5ODJkYTUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViYTZkYjA2NTAyNmU1ZDZiMmUyODdiMmUzZGJjMGNhOTUzZjBjYjZkMmIwYmZhMmY1NmIxMWY0Yjc0MmMzOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBiNDY4YWQwYWJkNWRmODYyMGJiOTRiZGZmZTg1ZjQyMTEwZWNkYThhZjc2NGE0ZDVjM2JhMDZiYWE1Zjc3M2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/src/common/config.py#L28-L47",
+          "version": "repo-lines-v1:sha256:8cfa1a6bfe838dc744d2e97923935e04ca91c58b64d83f4923841707b2d84bec:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmMDFhYThiZTEzOWZmNTRmOWU3MGMzNmJiZjY5NDFiOTY2ZmU1N2JiODYzOGM3Njg0YmU0Mzc4M2E4NDIzZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiZTliNGQzMjVhZTAyYTY4NmU1MzNkNTc2OTBiNjZkYTkxNzc3ZDkzY2Q5NjMwMWI4MGIwYjJjZmZhOWZlNTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImExOTA4ODJiNDg0MjYzNTQ2Y2M5YWVjMmQ5OTlkM2I1YjkyODM5ZmRkMjdjYTgzMzI0NmM2Njc3OTZhZDc1MzciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdjODRhODc4OWU5Y2M3NGY2YjIwOGZlNWRkN2I2NzQ3NzBlYzdjNmQ2OWMxMzIwMTdlNjMwNWNmNDIzOWUzMDUifQ"
+        },
+        {
+          "resource": "repo://common/src/common/tracing.py#L19-L50",
+          "version": "repo-lines-v1:sha256:7aff76f771cd0f43d873b031be670089bea17f101b234e1d5e753aeaa43ddfc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2MWYzM2MxMzI1NjlhNzQ5NDZiMmZjZjU0NmNhM2M0NDI1ZGEwY2E1Y2Y2YjY4NmMyNjA5MGZhYTlkMTEyYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNjAyYmEyZWNjYjhjN2E0YzU4OWMyMGNkZDk0NWE1MmViOGIyOTkyNGZjMmRhY2JiYjI2MDYxNThjYTQ4MDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxNTg0ZDZjYWYwNWI0ZGE3NTY3MGU0YzlkYjY3OWM4MjQwMGYwYjM1OGU4YWMxZGRkNGM5YTU2ZWY3NGU4OWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0MWE1ODQ3YjlkNDIwMjM5NzYzMTc3MjdhMTNmZDM4MDBiNzlkNTlhMGE3MDJkZjBhMDA0NWM3YTBiNzRmNDEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_91adabc663f04e7aba03632127baff9f",
+      "statement": "P0 constructs the reasoning model, prepends its fixed system prompt, streams nonempty model chunk content as token events, and on normal completion emits `message_end` before trace metadata containing a locally constructed LangSmith run URL.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/agent.py#L18-L57",
+          "version": "repo-lines-v1:sha256:bd8b2b81fdd2e6ffd6c2b6fff084561f2dc456c96801fe7135fe9f0e53d69126:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMxNDgyMTBjNjRiYzRhODU3ODJlNzYwMjJmN2IyMmRhNDVmMGY5ZjJjOWMzMzhjZDJjMTZlNTkyZjBhMDI4NDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyZTRlMTUzYzZkM2UyZjE0MTZhMTY5MTBjOGUwNWNmOWZlNDZmYmE4YjA4NjZhZWFkMDYzYTRmYjI3NDBjM2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY2N2I3MGJkNThjYjE3ZjdjZTc2ZjkxZTNiYjNjNGNjMGEwYmM1MGVhNmZhMDBkNzRlMDdlMzQ0YjVkZDU5MjQifQ"
+        },
+        {
+          "resource": "repo://common/src/common/llm.py#L37-L90",
+          "version": "repo-lines-v1:sha256:c56b66e1ef058ef741899579c942283021bd2489f8e1032b654cae38fc88fa3c:eyJzZWxlY3RlZExpbmVDb3VudCI6NTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZjViZmIyODg3ODQyYjMzY2Q4Nzc5YWQ1ZmM2OWQ1YTZiMTEyNTBjZDNjZmM3ZDc2NDg2Mzk5Y2EyMGI3N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZjkzMDgzYzE5NzEyMWI5ODI3MDBiYThhZmFiZDE3MjJjZjFkM2U3NDA0NTA5ZTgwZWZhMjcyNDdmNjJmMDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYjIzYWJiYjMzMzlkMWI3YjdkOWRhYjUxZWYzZTZjMTBjMjBiN2MyOGEzNjJlMDA2ZjM2MmM4MzM5ZDEwOTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_32eba2f457214ca28870e140da4bfc7c",
+      "statement": "The shared SSE protocol has a closed six-event vocabulary and serializes each event as an `event:` line and compact JSON `data:` line followed by a blank line.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/ui_bridge.py#L19-L52",
+          "version": "repo-lines-v1:sha256:f2ad362f2df477e6dbef737a27d54f19e71633eeecc2a97276647a548b962455:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2MyMDE1ZWVkOGZlZGEyOTBmMDU2MjNlOTAwYWI5OTI2NzRhMzc2NTJlNmY4M2I1N2Q1ZWY5YTZiMjRhZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImVmNGEwOTc5ODM5NGU2NmQ2YTczMGU1ZDE0ZGJlYzU4ODg5MGE4MzUzNzk2NzNkZWY1OWExMzcwYmI2MDMyNjAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzODhmYTk3NWY2ZWE5YjA2NjIyYzMyZmQ2YmU0OTU4ODVlNjY0MTliZTVkNDZiOWExZDMyNGQ4MTRlYWQ0NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjExYmMzNjFlNzMxMDUwOGY4NGRhYTcwNmMyY2QzYjJmNGZlYmFmMGM3MjFlODkzZjdkODA2ZjFhZGViNmQwMTAifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_ui_bridge.py#L21-L36",
+          "version": "repo-lines-v1:sha256:4367f3eee94b61e5a8db7fc22f5d88bb59de4fe8c9ed95974e34b38aadd8bf16:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjNDI0YTRkMDU0YjVjOGZjMmVkMDMyMzM2MzJmZGFmMGViZDcxMzhhMmRiZDU1NzY2YzMxODVjOWEwNDkxYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjdiNGNjZWNjMjcxMDQ3NWUyMTRmOWU1MTI0ZDI3MTk5MGJjZTUwZmEwZTk3ZDIzOTZmODg0MjdjNDU3NzlhM2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5OGIwNjNkOWI0N2U2NTM3OTYyNTU3MmNjZTE5NzY2OWQ1NzY3ZTEyYzE4YmUwNzU2NTJiOGNkOTgxY2U4ZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiYjdlOTZhYmRmOGEyMGVjYzlmYzFmZDE1NzhjNDQzZTgyYmJhMjI3MzY4NmQ4ODcwZjZiNjY5MDlkODdiNzgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ead896f59b044d9829c18e1d986e468",
+      "statement": "The browser stream adapter incrementally buffers newline-delimited response data, yields only recognized event names with parseable JSON, skips malformed or unknown events, and normalizes non-success or bodyless responses to an `http_error` event.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/lib/api.ts#L20-L68",
+          "version": "repo-lines-v1:sha256:30e79d1a14c08f3520869cb37242e39773a4a74e2056e057843dcb2449c5d5b0:eyJzZWxlY3RlZExpbmVDb3VudCI6NDksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2OTE3MDg5MTEyN2JmYzNkZDM4OTJhODczYmY0OGYwNTA1NTc5YTZjMWFhODQwMWM4MmNjMmUzYWZiMzVmYzgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjY5MTQ4Mzg0NzgwN2ExNDRiMmZmMWQwOTRmNjI1MDE3NGJkMjE2ODQ1ZGNkNzk2OGI3ZTYxY2UzY2I5ODg5OTMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/lib/api.ts#L3-L12",
+          "version": "repo-lines-v1:sha256:20db1797da3f4e4580b2a846706d11a6e15e2ac034a61413ede7badf25fc6893:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI5NDZlOTYxZGUwNjQ1NDNiNDdjYzNhODRhMmI4YTk0OGNmMGMyNDdmZGZiNGQ2NWZiODQxZjkzY2ZmN2YzMWIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZmZjEzNmEwZThhMTRjNjQ5YTI5ZDc1NzQxNjAzMzcyYWM2ZmM0MTc1OTk2MTkzMWE2ODZhMDgyYmM0MjY0MmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjE5MjhhOGY4YTg2ZDAwOGEyZjY4OWQ1MGVjYWVkYzRkY2U2YTZkYjhmNWYwMjcxOThjYmJjOGQ3YzFjZDQzZjAiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImFlMDIxMmJlMmIwMjY1NTU0MzAyZjgxZWViNWJmMTA1NmYxOWI4ZjNmMjc5M2U1NjBkMzdlMjJlMDUxZDkzYzcifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/lib/types.ts#L23-L29",
+          "version": "repo-lines-v1:sha256:53908954b591ad8670964576b914139b71586791c939863b6b918588b7db1873:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMjAzYmZkZTg5YTUzMjJkMWYwNzUyNGJjYjVmMWRlYTM1MWJmNzUzNTM0Y2EyMmFiZjNhYTdjOTU0ODk0NTg5YSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZDNjMzYxYTJmNjhmNmJhZDA5MjZlYTRiYWU2NDA3NGU1MTlmYWEwZDFiY2M1YTA0YTZlYjMxZmUxOWE4M2E5MyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTcwZTFkYTc0OGY3MGQzYzNkYmNmOTdhMGFlZjE1NzkyMGQzOGNiZGJlMTE5ODUzNjQ3YTcwYWMyYjkzNjEzYiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_e2bd2241a5bb41c3bb27a0376e84b6f5",
+      "statement": "The client reducer appends tokens, correlates tool lifecycle events by `call_id`, attaches trace metadata, appends in-band errors to assistant text, and replaces the final message after each event to render incremental state.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/components/ChatWindow.tsx#L38-L77",
+          "version": "repo-lines-v1:sha256:4483dc35d83817a5b287e74237fb152c16abb0a34c8e5be807ad464adde17e1e:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZiZmMyNDQ1MDg0YmMzYTRiOTQ3MDU3Y2RlYzY3ODNkYWYxZjhiMmQzZWU1MDhkOTVkNTY4NWZkM2Q2MTlhYzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjliNjJmNjBkODU5MGE1NzljZjQ2ZjhkNjczNzhjNGM1NzJiOTYyY2VjY2RiOTBjN2E1ZjdiNDJiOTYwNzgyYTQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjAzMDc1NGUyNzkyM2JjNmRiZjZlYTZjYzE1OGJiNmYzZTFkMTJlNjk0MzdiODljYzY1NmU1YmRhZGRiMDYyMzYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmOTA4MzljZmUyMjk5ZTdlYzViZWVmODA2YTlhYTE5YTk2YjQ2YWFlMzAwN2NiOTk2MWI0ZmMxMzNmZTg3YmEifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/components/MessageBubble.tsx#L27-L40",
+          "version": "repo-lines-v1:sha256:62a01598de0d352b1bbb2962ea3c9c431a37d0171172dc9a1aa7eee85a4d0421:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImMyOGIwMGI2MDJhMjg0MGQ0NmI0ZjY4ZjIyZjIxZmYzNjY0NTMzYTNhZTUyODZiYmEwMWM0ODhlYTFjYzAwMzUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwNTYzMDRiMGVlYWJkODhhZDRjYmRkNjBiZGY0NjY1MWFkODU3YWQxZTAxMDRlNDJhYmZmNmIwNDNhZThlYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImU0MjljMDAwYWZmMzg2MDk3ZGM5YmRjY2ZhYjY3ZjY5MmMyMDNkYmY0NWQ3ZTZkOTgyMWEwY2RmZjg0ZjIyYWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiOGI2MDBhNWI0NDhiMWU0ZDAyZGYwOTc0NmVkM2NhMzE3MmY3NWM0YWFiYjAxZGRlMDgwZTM2Y2FiMDc0YjQifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/components/TraceLink.tsx#L3-L18",
+          "version": "repo-lines-v1:sha256:d481a8fc7680dfc74cd08fd03e073cb082653b8830a2b4406fa18c8d79183073:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwNTZmZGQxMzFjODQyMTFjZjUwMzhhOTRmNDQzZTFlMzA0M2VlODIxYTUwYTc0YmFjZmRjZTc2MzU4MDhiZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZWYwMWJjMDhkYmMzYjYzZTRlNzVlYTNkMjZhNWI5NDE4OTE4NzdlMjdhZDg5MTMyOWM4NDExZDdkOGRjNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExZTI0ZDA0MWNlZmE5YmMyOGU0MGE3Mzg2MzhmNGVmMTM1Y2ZkY2RkMmM1ZjRmYTg1ZjI1M2RjYjUwNjA1NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/lib/types.ts#L3-L29",
+          "version": "repo-lines-v1:sha256:434c49ad600748ced20a1248c5f42f34afa4f275704b43b0365d14d40e869700:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImIzOWY2Y2Y2MmU1NDNkOTBjNGEyZjdjOTQ3NzQ0MTFjNDhmNGE4ODk0NGQ1NzBlZDRjZjRmYWVhM2RhOWJhOTEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQzYzM2MWEyZjY4ZjZiYWQwOTI2ZWE0YmFlNjQwNzRlNTE5ZmFhMGQxYmNjNWEwNGE2ZWIzMWZlMTlhODNhOTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjI2NjI3NzA1OGY2MzEzNWNkMGM5Y2RlMjFkN2E1NTU2YTVlZTY2MzQyNDMzZTgxYjJiYzIyNTE1ZjdjMjViNWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_e9acf793c4014ea8820152860aaf23c4",
+      "statement": "P0 converts exceptions raised while entering the tracing scope or iterating the agent stream into an in-band SSE `error` event with code `agent_exception`, rather than changing an already established stream into an HTTP error response.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/server.py#L53-L61",
+          "version": "repo-lines-v1:sha256:82fec1b783b1efb7b35bd7f50d3f4d830c67e0d496b994e25f624ba5bdf6d79a:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiN2FmMGY5ZDg0M2NmMjExMjlkZTY5ZmJkZjAzZDE3ODQ1NGY0ZTMxNWY5ODQ1ZDk4ODU3Y2Y5OTU3NTMzMjllNSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNWJhNmRiMDY1MDI2ZTVkNmIyZTI4N2IyZTNkYmMwY2E5NTNmMGNiNmQyYjBiZmEyZjU2YjExZjRiNzQyYzM4YiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYzFmYWMyNjZkNzYyYWNmZjU2M2VjYjk2NWQxMWUwMWUzNDBkZTEwZmMwYWZjNTk2NzE3YzAwYTRiY2I2ODA2MCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://common/src/common/ui_bridge.py#L78-L80",
+          "version": "repo-lines-v1:sha256:05f949e87c378970a0c706dfd62b3d854b4e1794054aade9516ce45e4d0b1fc1:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGIzNWE3YmJlN2VkMzg5OGY3NGYzMzAwZjI4NTE0ODEyYTdiNzA3ZDQ4MGRlZjVhNzkzNDJkYmFiOGViMzdkMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDAyZGI1Y2JlZDgwNjUyOWQ0NTJhM2JhYTAyNWE2MjNjNDc2ODQ2MzJmOTg1MGQ5NzU3MzNlZDI3ZTIwM2Y5MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOTY2NDNkOWQ0YzhjY2EzY2U0NjkyMTZjM2IyZTY3OGU0MDk5OWZhM2NjMDk5NWNhMzEzMWViZjNjYjgwZWM2MSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTg5ZjZmMDJiMDk2NmFhZTNmZGQ1NDVkZjk4ZDhjNTNhNmMxMmZmMWM4ZTQyYjU2MDAzY2VhN2JhNWM5MjFhYSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_9023297a3c234a83a13afad940e0403a",
+      "statement": "Pressing Stop aborts the active browser request; an aborted iteration is intentionally silent and preserves partial assistant state, while a non-abort thrown error is appended to that assistant message, and cleanup always clears busy state and the controller.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/components/ChatWindow.tsx#L78-L98",
+          "version": "repo-lines-v1:sha256:b7cb0178a3cc13369d807b1dfd11010ab2af7bd78eb0afcfa89f8bc52e617a48:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQxYjlhNjZmNWU0MDliYmVkZDFjY2Q1ZDdjNDA3YzIyNjU5NDNjZjAwNWY2ZDhlZTdhZjdiMTlkMjVmNjc4YWMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI3ZTU3ODhkNWQ5ZDczZDI0YTgxZGJjMGE1YTc0YmZhODJjOWMzYjNhZjk5ZTUyYWY3OTZlOTBiNDY4YThhM2QiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkYTRkYjBjNTg4ZWE5NmIxOWE0NmUzYWJiZDY5ZjRhMzZjOGZiMDc2MWQyNTAxMGNlZGNjMWU3YzdlOTNmNzEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY3NDg0NGYyMTFjZGVlNzIyMWMyOTVhMmM0OTBkYjUzYjk5ZTBmNzA0Y2MxZjE4OGJkMGY0NDRlNjdkYjc3NmMifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7834e28bf0d94be4ac0d47f6041eeb1b",
+      "statement": "The reference UI renders trace metadata as an external link with `noopener noreferrer` and renders tool arguments/results in the chat interface, so agent-emitted trace and tool payloads are user-visible output.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/components/MessageBubble.tsx#L31-L40",
+          "version": "repo-lines-v1:sha256:04ebd50dfaea5712dbabe8d32c62f55f9a01a38fba04575f11295622fa104cb1:eyJzZWxlY3RlZExpbmVDb3VudCI6MTAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1YWE1ZDdmNmQ2YWQ0YTU0ZWE3ZjdmZGQzYWM5NTI4NTEzNTVkYWI2NGM2MTk5YjRkZjg4YWZlOGZkNDA0MDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUwNTYzMDRiMGVlYWJkODhhZDRjYmRkNjBiZGY0NjY1MWFkODU3YWQxZTAxMDRlNDJhYmZmNmIwNDNhZThlYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjBhYjcxNjkxODdmMTM1MDdiZDY1OGI1NGRhYzhiZGFjNmVmOTljZWE1MjY0YzUyZDMxMGJjZTA5NGIzMDgzYmMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdiOGI2MDBhNWI0NDhiMWU0ZDAyZGYwOTc0NmVkM2NhMzE3MmY3NWM0YWFiYjAxZGRlMDgwZTM2Y2FiMDc0YjQifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/components/ToolCallTree.tsx#L19-L45",
+          "version": "repo-lines-v1:sha256:a4ffcc5a37ed44f1c7e5c92dd5b2c3bbdb07985539ad9f324bf9f40c19ef47df:eyJzZWxlY3RlZExpbmVDb3VudCI6MjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQxNWE2OTczNWZlZjI3ZDBmM2VlNDcyMWNiZjRlYWU5OGIyM2NhYmQ4MGJmNWFiOTBmYjBlYWY4ZGY1ODkxYzEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcxMzAwNDg0N2UwNGQ4ODQxMmY5NGVhYjZiMDU2NDlkNjJiMDQyM2QwNDliYjRiMzI3YTgxNjMxNmQ2NDQzY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5MzAyNTNlNDlhMGJhZTQ4YWNhNjc2ZGQwYmYzYzJjMWU5NzYxOGU5Y2UzMTg0MWQwMGFjYmUzYjA2N2Q2YWYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjgwODY3YTYzODc0ZDM0YTJhMDAyNGMzYWRjYzdjNzExMmM2NjUyMzNiNzZhODQ1YTYxNmNmYjNmZmQzNDQ1OTUifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/components/TraceLink.tsx#L3-L18",
+          "version": "repo-lines-v1:sha256:d481a8fc7680dfc74cd08fd03e073cb082653b8830a2b4406fa18c8d79183073:eyJzZWxlY3RlZExpbmVDb3VudCI6MTYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjAwNTZmZGQxMzFjODQyMTFjZjUwMzhhOTRmNDQzZTFlMzA0M2VlODIxYTUwYTc0YmFjZmRjZTc2MzU4MDhiZDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijk1ZWYwMWJjMDhkYmMzYjYzZTRlNzVlYTNkMjZhNWI5NDE4OTE4NzdlMjdhZDg5MTMyOWM4NDExZDdkOGRjNGQiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjExZTI0ZDA0MWNlZmE5YmMyOGU0MGE3Mzg2MzhmNGVmMTM1Y2ZkY2RkMmM1ZjRmYTg1ZjI1M2RjYjUwNjA1NzkiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjQxMmNhMzQ1Y2NmNzViZjljMDgwNmJjZTY5NWJlOGRlODA4Yjc5OTg0MjUxYTdhNTRkMjAyY2Y2MTAxZGQ0NTEifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6056550f61b740cf97ccc4f87d902bf9",
+      "statement": "Offline verification covers shared SSE framing/payloads and tracing scope restoration plus P0's invalid-request boundary, while P0's successful model-stream tests are marked `eval` and the current UI test only checks its health route.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_agent.py#L11-L44",
+          "version": "repo-lines-v1:sha256:41d7499f0c48772ad57948bdfca85b459e310abaad61970ed6a43111a930a315:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgyMGM1YzJlMjQyNTk5YjE2MWE3ZTQxMmIwYjI3MWI5OTE1OGU0MjQyZjdhZDc5NDczY2QyNTMzY2MyNzcyMjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2NGUwYjk0OGNlYWE1YmFkMDk2NjM0MGNiOWE0MWZkZWNkZjA5Y2Y2NmVkNDY0MDI0YjEwOWM2ZDU4OWQ1NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImM5ZmJiZmRhNjI0ZGQ1NjVlNDY4ODZmYjM5MDE0MGU2ZDE0OWVjMmJiYzlkNjBlMGZjZDA0NzBkMmMwZjkyMTgiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L16-L54",
+          "version": "repo-lines-v1:sha256:227de3cd214851b338b8069a80d2a45a559175d5e320e8bfb15c2ec4c7976eaf:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmZjU2YzFhNjRiNzQ3MDg3ZjZkODM2MzRiNzk2ZTI2Zjg2MjNmNGVhMWRiYWZhNzlkYjljMWRkNTE4YWFiOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhZjUxMDNkZTgwM2U0OWI5OTlkYWFhNWFlZWMwOWI5MGY5Njc5NDFjNDA4NGRlZjAzOTQ2MzMxYzQ3ZGExODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwNzk5Yjg4MGQyZjBlMjhjYWM0Zjk2ZTg5NGIxMWYwNGY2ODFmNjdkYjk1ZDUwMGJkNzQ1Y2JkNDBmMzc0ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0MWMzMGE3N2Q2NmZiZTMwNjMxZGU0YzJkYTQ0ODI4MWVmMjNhM2ZkZmVkY2Y1ZmZiZDE3ZmJkZmNjMTJiZTgifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/tests/api.test.ts#L1-L11",
+          "version": "repo-lines-v1:sha256:be61f44e483654609bcfb048d28fae5f7d1d58061a421f6738233cc986f9638f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4NmMzOGZkOTVlZjA3MDk2ZTc5NzY4YWRiZTcyMWY4MmM5MTE5YTQxMjljYmUzYjNjMTM3MGYxNmYxNTg3ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_tracing.py#L19-L50",
+          "version": "repo-lines-v1:sha256:d6c7d73cad49a2f771d45cce71779a41a9569d600f764fc77ce65677b23fec3b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY3YjY0NDIwZDkwZWJkOTk1MTQ1ZDU1MTM2Y2Y2MmEwMWI4YjI0ZmM0YWIyYmE2OGUxN2M0NDAzODc3NjczNzQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjOGYwNjllY2VjM2JhMTc4ZTRhMWE1MTE5ZWIwM2Y3NDQ2Zjk1YWI5NDQ1ZThhZDQxZGE4ZWU5YzQwZDRlMDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFjZjhlYWI4NjgxOTk4OGNjZmE5MGVjYjQ1MzkyYmMyNDgzYzM0NjYxNzAxODI2MTg5MmU5NzlmNzllNjE1MGIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_ui_bridge.py#L21-L87",
+          "version": "repo-lines-v1:sha256:5235303171bc10826b4c4acaedd7dbd51ccc3c7e0eae66eec5252fcc8ab9d9e7:eyJzZWxlY3RlZExpbmVDb3VudCI6NjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjNDI0YTRkMDU0YjVjOGZjMmVkMDMyMzM2MzJmZGFmMGViZDcxMzhhMmRiZDU1NzY2YzMxODVjOWEwNDkxYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5OGIwNjNkOWI0N2U2NTM3OTYyNTU3MmNjZTE5NzY2OWQ1NzY3ZTEyYzE4YmUwNzU2NTJiOGNkOTgxY2U4ZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://scripts/test.sh#L7-L13",
+          "version": "repo-lines-v1:sha256:6e8c97a42b88a0374510a7b7d4141eb42ea096d47725cf19590aa20a68af9bb4:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZGI5OTI1NjMwMjkyMDQ3M2NiMmIyZTUwOTI1MWI0M2U5NDA5ZWY0ZmIyZTYxYThiOGI2MWZkZTYzMzY5Mjk3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzc2OWQyMzdjZDQyMGI5ZDM4Yjk4MWEwYTRmNjc3MDE5MGE0YTgzZGNhMWZlNTZjNGY1YmExZTJjYmMwZWY3NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiOGY0NmZhYWE5NzI5YjEyMjM3NTc5NWRiNzcxODRkY2I3MGM2ZDI2MmNkYWYxMjAzZWQyMjIwMmY4ZDU4ZjlmMSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZmU2Mjg1NmUxODliMWY3MmNiMzQzMjViYjY0Zjk2NWJjZjIxMTE5NzM5YjkwNmY5NTc3MjJmNmFjYjk3N2JlYyJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-08-29T08:58:08.509Z"
+  }
+}

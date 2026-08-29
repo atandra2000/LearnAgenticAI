@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:54b830e83dcdc073512c05dcda5622ea9d91faec85a5b7a20b875b51887e760b",
+  "claims": [
+    {
+      "id": "claim_b8a6985242894d1ab897e8afcbed4141",
+      "statement": "The root pytest configuration discovers `common/tests` and `agents/*/tests`, uses strict marker validation, and defines `integration` for Docker-dependent tests and `eval` for tests that call LLM APIs.",
+      "evidence": [
+        {
+          "resource": "repo://pyproject.toml#L25-L31",
+          "version": "repo-lines-v1:sha256:56e0f938a110aef71f2f625f9359708ac1967bc29f33fd91861b309747e8f491:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3NmU2NDE0NjVhNjU1MWU5ZTljZmZkN2ZhYTFlNmE0MmY5YjcyNDgwOTgxM2M5MDNkN2VkY2I1MmYzMDA2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk0MTZlMDlmNzhiYTMxNmMwMzI1NjgyMTNiODU1ZWU3NTZlNDE1NjVkOTE4ZjA5NTE5YzgxZmQ2MjBmNDA2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWRkMzEyODNkNGUzMzFhYzUwNDdhZTIxMjA5NjNlZjRhYWJkYzc0NzViMmFjZjI4ZjlmMWEwY2U5ZmU3NjIzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_11893a574bc54c71a47e5f84b72f5dc3",
+      "statement": "`scripts/test.sh` is the routine cross-language test entrypoint: it runs `uv run pytest -v -m \"not eval\"` and, when the chat UI directory exists, runs `pnpm test` from `apps/chat-ui`.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/test.sh#L1-L15",
+          "version": "repo-lines-v1:sha256:01338cf01b812030a9ac13c667b02616958d6bcddc4ef99236d169c75c4674b6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkOTVmYzA0YTgwYzk1MmY0OWNlNDE4ODYyN2M1M2IwZmJlOGM0NDA0MWI5NTJkNTkyYWNkMWRlOTk4NjE0NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmMzkxMzcyNzMzYTQ1OGFlMzdjN2Y3ZDIyZTRlZTU1MGJlMDI4OWFjOTIxZDdhMDUzOWM1M2UwMjdiZjJkNTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_088b648346474df0989a47e86bace959",
+      "statement": "The default `not eval` selector skips P0's entire `test_agent.py` module because it sets module-level `pytestmark = pytest.mark.eval`, including its stream, invoke, runnable-shape, and event-vocabulary tests.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_agent.py#L1-L44",
+          "version": "repo-lines-v1:sha256:2a8d1fa0001351f2cc6f73c77d2fcce15fd05cdd4f85065cb0cf730033a8ad5c:eyJzZWxlY3RlZExpbmVDb3VudCI6NDQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4MDNhNmNjNTViNmFhYmNmYmY5YjI0N2EwODg4ZmU4YjY3Yzk2NjQzMDBiZjdjY2M3M2JlN2YwMjU0NDM3MGEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2NGUwYjk0OGNlYWE1YmFkMDk2NjM0MGNiOWE0MWZkZWNkZjA5Y2Y2NmVkNDY0MDI0YjEwOWM2ZDU4OWQ1NjEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_68f1e231984643b4ab4dd19e6e5653eb",
+      "statement": "The well-formed P0 completion-endpoint test is `eval`-marked because reading its first streamed response chunk requires a real OpenRouter call; it checks HTTP 200 and the `text/event-stream` content type.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L34-L54",
+          "version": "repo-lines-v1:sha256:50f861c22b26fc6297d23461d8d3a3b6c6b9d1848aa65c63e14735bfa6d61ef1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1M2UwNzlkMzRkY2ZlM2NkYWM5N2ZkYTEwMTMxYjFhZDU2ODYzNDMxNzBlNTZlODc0NDVjY2NlOGM2MzU4YzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhZjUxMDNkZTgwM2U0OWI5OTlkYWFhNWFlZWMwOWI5MGY5Njc5NDFjNDA4NGRlZjAzOTQ2MzMxYzQ3ZGExODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTljYjZmNGRjZmJhNGIwYThmMTM0N2JmOGQ3ZGI3ODdmODdiODI3MzFmYTdmMjNhNTliMjYzOTdkODA5ZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0MWMzMGE3N2Q2NmZiZTMwNjMxZGU0YzJkYTQ0ODI4MWVmMjNhM2ZkZmVkY2Y1ZmZiZDE3ZmJkZmNjMTJiZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_dfee305d74364437bbcc0dd7799d7d7c",
+      "statement": "P0's unmarked FastAPI tests use `TestClient` to verify that an empty `messages` list and a missing `messages` field receive HTTP 422 without a live LLM call.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/server.py#L26-L59",
+          "version": "repo-lines-v1:sha256:c4918bbbbb6a01b2e7170b3be1a0dce32b55c4a73655afecd28c34cef4aa430b:eyJzZWxlY3RlZExpbmVDb3VudCI6MzQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjYTRlNTdmOWI5MTYzOWE2ZjI2MjJjN2FmYzA5ZTc4M2Y1ZTVlZmM1YjJkODg4ZDFjMDZlMzliODUyNjMwZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3OGU0ODQzYjJjYjA0NWI4NTNlNzk1YmY1Yjg1YjRkYmUwZDEzYTA1YTk0MTgxNWYzN2VkNjZiOTkwMmMzNGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjMzZGYzMWI5NGJmODg1MWQ0NzFhMTYxODFhZjMwYjY4NmYxNDMwODNjYTg1ZGRlMmQyZTU1ZmI2NDE3NWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjUyOTdlODUxYzM1NmYyZDZlYzQ3NmJmMmY0M2IwZjkyMTY3MjQzNzU2YmMwNGFlMTY4ZTU4NjhmYWY4MDhhZjcifQ"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L1-L31",
+          "version": "repo-lines-v1:sha256:932652e2f0c0a4033be7de2e27bca7fbd5e30e997a9405941651305032687cee:eyJzZWxlY3RlZExpbmVDb3VudCI6MzEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1MTg1YWNhOWI5YjQxZGE5ZDVhOWI1Y2ZjZjU3NTkyZGZiYmRiODI3M2QzNDAwMzJhNzU3NTlmZDYzYTc2MzciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM4MDc1N2I4MzZiNjEyZWJhZjYzZTBmMzkzNWJiZGFhYmU5YmFjNjQxNDAwNDUwMDk3MTdlODBiY2I3NjIxNzciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjkwZjk0MTUzMjhhMDdkNzkzMDY4MmViYzgxMjUwZTRiYjJkYWQ4ZWQxODc2YThhMTc2NzRmMTAwMzRiY2QwYzAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_6d79e4bf4fd945d4bbcc8cfbe0c1b5df",
+      "statement": "Shared configuration tests cover defaults, environment overrides, prefixed project names, and the cached identity of `get_settings()`; the configuration accessor is an `lru_cache(maxsize=1)` singleton.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/config.py#L39-L51",
+          "version": "repo-lines-v1:sha256:4fb22a24d1c5c71d5f8085a9dc7b70866deedcd6dabb7608bfdbf6f4d4056d4d:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMxZDQ2NzljNmU3ZGQ4MmJhMTk4NTQ4ZjUyMGVkN2JhYjNhMWRhNjM3ZjgyYzRjYTdiMDE5MDI3N2I1MWViNzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjI2ZWJjYzY5N2UyZjY5YWY0ZWQ3YzI1MDQ1NjMxY2Y0MDA3NjJjMmIzMzJiNzU3OWM2OWM0MGIzMTI4NWRiNmYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImZiM2M5NWNmOWI4YmUxNzEyODI5YmYwMGFkZWVjNGFmNWMwMzFmMDcwNzdjMzMyOGQ2ZDU4ZWNjMWEwODZkZTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_config.py#L10-L41",
+          "version": "repo-lines-v1:sha256:0268f642bf8a7a216a2c671f732797c04cfc1a0dfea67a4fe0738f4cffd40050:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0OWM2YjM5MDE4Mzc1ZTJlODY1ODI1NzVkMTU2YzQyN2FjNjJhNDJkYjkyM2M0YTI0OTJmNDgxNjQ1NzQ0NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMjQzMzliN2VjNTNlNDMzYjkyNThiZDA0MmNhZmVmMzUzMTFkM2RhY2I0MGVlZDU0YzhmMjkzODljNGIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNmFjZmJhMGViNmU3Yjc5ZGMzYTlmN2Y4NmFkNTAzY2UxYzliMDk2OGM0OTllYmU1YjhjOWQ1YzFiMTc3ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5dc9624e077e473e9710c919dd78ae74",
+      "statement": "The model tests are mock-free configuration/routing checks: they verify task resolution and fallback, inspect constructed OpenRouter/Ollama `ChatOpenAI` client configuration using placeholder environment keys, and assert route-specific missing-key errors without invoking a model.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/llm.py#L37-L98",
+          "version": "repo-lines-v1:sha256:83e7a78e238ffd995b21a4bfea9efbe8d5d30433a2a345b9acd8167e5e8d48e3:eyJzZWxlY3RlZExpbmVDb3VudCI6NjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlZjViZmIyODg3ODQyYjMzY2Q4Nzc5YWQ1ZmM2OWQ1YTZiMTEyNTBjZDNjZmM3ZDc2NDg2Mzk5Y2EyMGI3N2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM1YTVlZGFlZjgwM2Y2YmM0NWM1ZWY0ZmM4OGE1ZThjOTEzYjJkMzVlOTlkNmI3NzM0NDVlOTBhM2I4YjU0MGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjA5ZjkzMDgzYzE5NzEyMWI5ODI3MDBiYThhZmFiZDE3MjJjZjFkM2U3NDA0NTA5ZTgwZWZhMjcyNDdmNjJmMDciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_llm.py#L1-L60",
+          "version": "repo-lines-v1:sha256:ef560346de1f3c4f02cee1cace9170ee680952923e0d95293b8eccb84ca7eeb8:eyJzZWxlY3RlZExpbmVDb3VudCI6NjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg3YTcxMWUxMDMyYzRkNjdlZjAyYjZhZjM3Mzc1ZTliYjkyZDNlMjhhOTI1OTAzZmFhMGM2ZGY0OGM5M2IzZDQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2ODAzNzBiMzNlOTdiY2NjZjUwOGM0NjZjYjg2NjViMTE0Y2RkODcxMmU3NTk1ZWQ3ZTNkM2NmMGRjZTIxODciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_39471bbbc56640079759ad814cf4b197",
+      "statement": "Tracing tests verify that `setup()` selects the prefixed LangSmith project, honors a custom prefix, and restores prior environment state; the implementation snapshots and restores four LangSmith environment variables in a `finally` block.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/tracing.py#L19-L50",
+          "version": "repo-lines-v1:sha256:7aff76f771cd0f43d873b031be670089bea17f101b234e1d5e753aeaa43ddfc5:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjU2MWYzM2MxMzI1NjlhNzQ5NDZiMmZjZjU0NmNhM2M0NDI1ZGEwY2E1Y2Y2YjY4NmMyNjA5MGZhYTlkMTEyYjQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlNjAyYmEyZWNjYjhjN2E0YzU4OWMyMGNkZDk0NWE1MmViOGIyOTkyNGZjMmRhY2JiYjI2MDYxNThjYTQ4MDAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjIxNTg0ZDZjYWYwNWI0ZGE3NTY3MGU0YzlkYjY3OWM4MjQwMGYwYjM1OGU4YWMxZGRkNGM5YTU2ZWY3NGU4OWQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjY0MWE1ODQ3YjlkNDIwMjM5NzYzMTc3MjdhMTNmZDM4MDBiNzlkNTlhMGE3MDJkZjBhMDA0NWM3YTBiNzRmNDEifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_tracing.py#L13-L50",
+          "version": "repo-lines-v1:sha256:9ddf574f0ee48065d03a51d0f928dbe655ae7c988071e9914d74c04a4431d2a7:eyJzZWxlY3RlZExpbmVDb3VudCI6MzgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjZmMDg2NmY0MDExZTU4NWZmYzA5MDkyZWRmMDgzMmUxN2I1MmY0YzkwYzRjYTBiNDJkY2ZhMDUwZmEzNzViNWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVjOGYwNjllY2VjM2JhMTc4ZTRhMWE1MTE5ZWIwM2Y3NDQ2Zjk1YWI5NDQ1ZThhZDQxZGE4ZWU5YzQwZDRlMDEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjFkMjJhZWNkMjBkNTM0MTJkZDM4MmQ5MzNkMzhlNDY3Y2MyMmQxMGQ4MDhjNDY3NWMwMTg1NmY0ZDIwMThhN2IiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_b1b86c42cf234678981896be05de1f58",
+      "statement": "The shared SSE tests lock down exact framing, reject unknown event types, assert the six-event closed vocabulary, and validate payloads for every event helper.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/ui_bridge.py#L19-L85",
+          "version": "repo-lines-v1:sha256:0084337e2bb73d0ae82d104a9eb45351b80af0e1714c1f0d9b212a83b351833f:eyJzZWxlY3RlZExpbmVDb3VudCI6NjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJhM2MyMDE1ZWVkOGZlZGEyOTBmMDU2MjNlOTAwYWI5OTI2NzRhMzc2NTJlNmY4M2I1N2Q1ZWY5YTZiMjRhZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1ZDZmNzQ2NDA1ZTRmNzgyMDczOGQ1YmFjMmExYjAwNDIyZDQzODc4YmEzMmUzZTBkMDgzNjZkMzc4ZTA1YTciLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzODhmYTk3NWY2ZWE5YjA2NjIyYzMyZmQ2YmU0OTU4ODVlNjY0MTliZTVkNDZiOWExZDMyNGQ4MTRlYWQ0NmQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_ui_bridge.py#L21-L87",
+          "version": "repo-lines-v1:sha256:5235303171bc10826b4c4acaedd7dbd51ccc3c7e0eae66eec5252fcc8ab9d9e7:eyJzZWxlY3RlZExpbmVDb3VudCI6NjcsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjNDI0YTRkMDU0YjVjOGZjMmVkMDMyMzM2MzJmZGFmMGViZDcxMzhhMmRiZDU1NzY2YzMxODVjOWEwNDkxYWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4OTNmNDBlMzc4MWViODk2YzgyZDA0NmEwODA2N2ExMWUzNWNkZjJmMWRmYWYyNmZlYTkwYjhkYjY2NzY0MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImE5OGIwNjNkOWI0N2U2NTM3OTYyNTU3MmNjZTE5NzY2OWQ1NzY3ZTEyYzE4YmUwNzU2NTJiOGNkOTgxY2U4ZDUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_edec9a5a920b4bd4bc4dcd87489dad2c",
+      "statement": "Vitest runs in a Node environment and includes `tests/**/*.test.ts`; its current UI coverage directly invokes the health-route handler and asserts HTTP 200 with `{ status: \"ok\" }`.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/app/api/health/route.ts#L1-L5",
+          "version": "repo-lines-v1:sha256:c25de7da0a61d112b567639c1fef49e93aff8bea45fcb3228dca53f80142122e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzNmE1OTQ3OTkxYzFjNzg5MjgxNDEyNmIwY2M2MGMwY2E3YTFhOGJiNjBlMjUyZDY2Y2M1NzBhZjY4YTIzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://apps/chat-ui/tests/api.test.ts#L1-L11",
+          "version": "repo-lines-v1:sha256:be61f44e483654609bcfb048d28fae5f7d1d58061a421f6738233cc986f9638f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4NmMzOGZkOTVlZjA3MDk2ZTc5NzY4YWRiZTcyMWY4MmM5MTE5YTQxMjljYmUzYjNjMTM3MGYxNmYxNTg3ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/vitest.config.ts#L1-L14",
+          "version": "repo-lines-v1:sha256:9eb8056175508792febf0bfdaebef2ba0080986de2fa9adaf4c0deec6104b4da:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjgxNzRlOWU5MDAzOGViM2EwZGQzNGQzMTMzZjg4OGZhMmVlNTEzZDIyN2NmOTkzZTM2ZTNjNTc1ZDVlOThkYzMiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_cf3b896003b2442a8671b8e2e2c78f2f",
+      "statement": "The CI workflow runs on pushes to `main` and `foundation`, pull requests to `main`, and manual dispatch; it has independent Python and TypeScript jobs.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L1-L13",
+          "version": "repo-lines-v1:sha256:b112020d640f9517c5803b32554e203c82c7058eddf47129a7423a36892777cb:eyJzZWxlY3RlZExpbmVDb3VudCI6MTMsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2ZTFiMzJmYTA5MDc5YWUyZjAwMDFmZmYwZWNhMjdiNDk4NTk1N2Q0ZWI0ODU3OTI5YjNjZjA1OGZhYWU1NDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMzMzczMzRhZWMwZGNiMjRlNDBlM2MyMGRjMDlkNTlhZjY3NDNkMDI3ZGJmZjUwYzFhY2EwODk3NDcxMTc2NzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjhmYTU4Yzg4OThjODk3NTk2MDM3YjFjNzU0ZjZjZWJkNGQ5YTY3ZTc4ZTA5OTQ4ZWI1N2IwOWZlNTk0YjdmYWEifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/ci.yml#L36-L55",
+          "version": "repo-lines-v1:sha256:0ea00cda60d0fe62cfd914a813ab3f485a52ca88589380f9033a39b71186d941:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ZTY0NDRmMmMwZjY2N2VmNWRlYjQ0OTI3MmIwYmVlM2U2OGE0MzA2ZjU3ZjBlOWQ5OWUyOGQ5ZWFkMjBhZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MDVmYTc0NmI3NzE0OGFkNmIwZTg3NDllYThmNDhiODY5OTFkZWRmMGI4NWFmNjg5ZWY0MGQ1MGQ2YjY2NzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyOTEwNGVjZjYxZjYwYzMxMzFlYWU2ODFjMTBhZWE5MjRjYTU2NWJhOGE2YTk3NTI3Y2U5YTAxZmI0NzU1NDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_8cdde4fd8a4c451aa4b4c030b8c237d2",
+      "statement": "The Python CI job synchronizes all workspace packages/extras, runs Ruff lint, strict mypy checks, `pytest -m \"not eval\"`, and Ruff formatting checks for `common` and `P0-smoke`.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L15-L34",
+          "version": "repo-lines-v1:sha256:99df7dccfe3f412adb93c48dd20eb3b62e16be429140cff1b38c7be2f967215b:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjIwN2E5NTM5ZDI5NjA2N2Q0ZTI4ZmU3ZTZlMmRhMGZkZjBhYTc3Yzg0NDkzMzM2ZTkxNTIwMWJiMTA0MmJiOTAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImJjZWU3MjhiZDhkM2JjN2RhY2IzNTYzNjc2OWVjODAwYzY1OTI4ODQyYTdkNzQzODdmMDVlZDQyMjY5YTdjY2IiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMyOWMyMjVhOGE5NjY1MGVlMTMxNGY2OWNhNmRjZWE3NGUwYTZiNGQyYjViZTVjYmVmNWJhODgwMmM1NWM5Y2YiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjEzMzIzNjllNjVhNDNjYTkxZDdjNzA5YWRjNDJiNmZjNDdkN2ExNDM3OGQxNGZlMTllYzE0Y2E0MTMwODI2NTIifQ"
+        },
+        {
+          "resource": "repo://pyproject.toml#L11-L30",
+          "version": "repo-lines-v1:sha256:6ac39625ae591dbb020bf17eaccc9947e18f21418326a060c71d52ade58bb529:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijc3NDVmYWI4NmIxMjFkYzg1YjRmNzg2NzMzOWExM2ZlZTgwNGM4YTAyZjQ3MTA2NTcyZjJiZjA2NjRkNTk1MWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBmNWNhOTU2NmM4ZThiZGU5YTU5ZDU2NDQ1OTExNWQzYzgzZWUyMWY2YzI1NGZiN2ZlODZmNzU2MTE2ODVhYzEiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjQzMzVmNmQzODIzNTQ2ODA1YzQ2YzRkOGJkOTc5MzY5NjgxMDkwODcxMWU0N2JiNGI2ODk1NGJiMWQ3Yzk5NjEiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5NDE2ZTA5Zjc4YmEzMTZjMDMyNTY4MjEzYjg1NWVlNzU2ZTQxNTY1ZDkxOGYwOTUxOWM4MWZkNjIwZjQwNjAifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_a0a9c3be6689464aba7dca671c4d1798",
+      "statement": "The TypeScript CI job installs dependencies with pnpm under Node 20 using a frozen lockfile, then runs typecheck, lint, and Vitest; it does not run the UI's formatting script.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L36-L55",
+          "version": "repo-lines-v1:sha256:0ea00cda60d0fe62cfd914a813ab3f485a52ca88589380f9033a39b71186d941:eyJzZWxlY3RlZExpbmVDb3VudCI6MjAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ3ZTY0NDRmMmMwZjY2N2VmNWRlYjQ0OTI3MmIwYmVlM2U2OGE0MzA2ZjU3ZjBlOWQ5OWUyOGQ5ZWFkMjBhZTkiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MDVmYTc0NmI3NzE0OGFkNmIwZTg3NDllYThmNDhiODY5OTFkZWRmMGI4NWFmNjg5ZWY0MGQ1MGQ2YjY2NzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjEyOTEwNGVjZjYxZjYwYzMxMzFlYWU2ODFjMTBhZWE5MjRjYTU2NWJhOGE2YTk3NTI3Y2U5YTAxZmI0NzU1NDYiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/package.json#L5-L13",
+          "version": "repo-lines-v1:sha256:4bbf47c74e0ba35a22382292a736bc97e4b26059331784a44eb83bd065f16dec:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMzQ4MzNkNTk0OWMwM2E0MGNhOTUyNDkxNjEwYTY2NTk2NDRiM2FhNDY2MzYyZjc5OTAyMGRiZjE5ODE1NDdkYiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNGQ1Y2QyZmI0ZjNkZjg4NDUxNTI1NWIzOTUyM2YyZjhiNTQ3MmJlZWE5ZjU2NmZmY2EyMDRkYjgwMjU2MTA0MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiM2VmZjQ4YzU5NmMyNzhlY2Y2MmM4NzhmMWE0ZTk4ODIzYmI4Y2Q4YTBjODFkZjE2ODQ1MmMxMjA3MWYwNWNlYSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzYwZjM2Y2Y2OGRmZDY3NDE5MGQxYmEwYjIwM2Y4ODA3OTAwYzRkMTE0Y2ZhNTNkNTBkZWEwMzk2OTY3YTRhOSJ9"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-08-29T08:58:08.509Z"
+  }
+}

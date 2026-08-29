@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "pageVersion": "sha256:5b7dbffbbe4d30aa98547b77d99d26835d3070748917e921ebbd5f1450a334ae",
+  "claims": [
+    {
+      "id": "claim_c8273a733e25406e9d7e55a275d88f5b",
+      "statement": "Local development is split between a uv Python workspace, independently launched P0 FastAPI and Next.js UI processes, and optional Docker-provided PostgreSQL/Qdrant dependencies; the UI rewrites its relative `/v1/*` requests to the selected agent origin, defaulting to port 8000.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L43-L56",
+          "version": "repo-lines-v1:sha256:e65944e463cdbdce34d7e85395234a1e022b7970fca319c3e2cd7781094378e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMzU4NWM5NzFmZTUyMGNjMmYzYWZlMGRiYTVkOGMyMmRmNWFkMWExYjZlMzczYjRhZDUzM2U4ZjIyNThiM2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NzVmNDljNmQ5Y2JmYjJiZTFlZTMxMmU3NTUxMWVjMmIyMTVkNTAzODVlYjY2Njc1YzNiMDM0YTE1NGNhNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OTRiYjFmZTkzMDIzYjZmNTkyNmI4NTZiMWUyMGE4Y2MzN2IwNjU1MGVmZWZiNjU3ZmYxNjM4NGJlZjFmMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5ZGVjZTZkZGQ4MTg0YjgyMWZmZDdhNzNmY2NmZTFiN2YzZmI3MTc5ZTVhZjUzNDJhMGI0YzgzZjI4NmQyOTIifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/next.config.ts#L3-L14",
+          "version": "repo-lines-v1:sha256:c368202433f1cea01652999fba2c03975b07429033a2ed6a369c65b044b6b267:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkYzMxMjNkODcwZGQwNjg5MmE2YTVkMTI3MWJiMjlkZDY3YjI4ZDMzNjY5NWI0MjMyYTZlMzUxZjE2ODk0NjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMyNWIzNWQzMWY0ZTI4YmM0MzVjMzY3ZGY3YmI1ZGQwMjljMzM3YWUyNTM0NzljOWZmZjY1NWM3ZDRhMDk1YWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzMTNiNzljZmY3ODk3NmJkY2FmNDdkNGM4Yzg0NGI0MGUxMzExMzU3ZDBmMjlkY2QyYzIyZjYwZDU2Mzk0OTkifQ"
+        },
+        {
+          "resource": "repo://docker/docker-compose.yml#L1-L32",
+          "version": "repo-lines-v1:sha256:6a1f8588083bc44501e495534884e880212d8d38509b23c4cb4c04b94517deac:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhNzNmY2NkYzk5ZWE4MzU5NjdjN2RlZTdlZmJlZDFmM2NhODcyNjBkOTI5MzE4NTBmZGQ2NmRhOGNiMTJmMWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMWMxNDhjYzk4Y2ZjZGVlMWViOTA4Y2E0ZTgwODgwMTM1OGFmODQyMTM5MTgyYmFlYzNjZDRmZGY4MGM2MjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3OTYzZmZmMTlhMWFjM2IwMGI5MmRmYmY5OTdkZjBlYjBhNzQzNWJlYzY4OTg0YjZkMDQ1NDM3YzRkYTcxMWYifQ"
+        },
+        {
+          "resource": "repo://pyproject.toml#L5-L9",
+          "version": "repo-lines-v1:sha256:059ea2edfa7edbf20e281646cd861b0d511fef30501917a3978c1f32c0c406e1:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMTBkN2NlODMxMTg3ODBjYmZjNmQ5Zjk5YmY4ODI5YWViYzYyZmU0YjgzMDIzODM0MTQ4NzExYTJmNGYzZThlMSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiOTU3NDVlYzljZmJkNDAxNTI3ZGQwZDQwMWUyNDYzOTYzYjZjM2U1MTcwZTY2NWU5ODc4YjcxYmU3YzgzYzQ3YSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTUxOWQ1YjIyMWU0ZmQ5NjhhMzc5MTkwNDZhOWE2ZWMwNjU3Y2Q0ZGRmZTQ3NzdlYzUxMTNhZTJlZThjYmE5YSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZDNhMzY2OTNlNzRlZGJmOTk2M2I5NTM0MTk2ODI0NGFhYmRiYTcwNzE3MmU5YmJhNjg0ZGY5NzkwN2JhMzk1NCJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_27ccc97d2b884f1ea65c0a0459a1f7ef",
+      "statement": "Root `.env.example` is a non-secret template for provider and LangSmith variables, while gitignore excludes local root/UI/Docker environment files but preserves `.env.example`; the current model factory uses OpenRouter for non-local tasks and Ollama Cloud for the local task rather than direct Anthropic or OpenAI clients.",
+      "evidence": [
+        {
+          "resource": "repo://.env.example#L1-L11",
+          "version": "repo-lines-v1:sha256:d4662b26e8b23a43cdf49d82d74f99c2f1e1eeb237386f119623278f8f3e4e3b:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImU2Zjc1YTk2ZTYxOGUwMGQwZDk2MmYyYWVjYzRlOWJmNGM2NDJlYjI4ZjliNDRmYzBjMDc0NGQxZjY1ZDBiYjciLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2ZDM3MGMxN2Q0MzAyZTUxN2NhYmI0N2JmY2U1NzY4YTliOGM4MmI1ZDI4MzIyYzZkZmI4YzZhOGQ2ZjllNTgiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://.gitignore#L31-L35",
+          "version": "repo-lines-v1:sha256:589a572e59d3d691a0a7c3a65ab5d3d61c859fa111eb9e0bf9bcdf363295a96b:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOGY5NGM4YmJlZmY1MGU1OGViZTZjOTlmODY0Njc5YThiN2EwZmMzMjdiYzhmMzQxYjU2MGRjMWQ4Y2ZjMWJjOSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiN2MxZDJlMzE4MDc2ZmM5YTBjMGUyNzY2YTc2YTQxMGI0YWYwMGFhNmFkYTYzYzE5YzlkMjY2MDc1ZTM1MzMzNyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGJmOTRiODYyNzU4ODcxOTVhNjM4MDJlOTQ3N2NmNWFkMjZjMTNlNWIwNzlhNmU0MTVkYTFmYzBlMmVlNTRhOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiOGU1N2Y5MGRjZDRkMmNlNTU5MjZiZWRhNDY4MTc1Y2NhMGI3NWViZTA2MTU5ZTFkMjA3NDNhZDQyZDFiY2U2NSJ9"
+        },
+        {
+          "resource": "repo://.gitignore#L47-L49",
+          "version": "repo-lines-v1:sha256:606209262489412cdfb8a0a05eefcece3e951b7ae8e492b40d5d1bd42f4cc61b:eyJzZWxlY3RlZExpbmVDb3VudCI6MywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiOTJjMGJkM2Q3MGRlYzU4MmJmYTg4NzA4YzQ3NWRhNTA5OGZmZjdjMWNiNmMwODAwYzVjNmMwMGU3MDI0OGMxNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYTNiNzA4MTM5YzRlMGM2NGY2ODRjNTc0NWM0OTZjMWE0ZTE4MWY2MDIxMmJjYzNkNmM1NDVlZmMyZWUxNTFhZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZGMwODg1MGM1MDA1ZDk5MWZmNGMwZWFlMWU1ZDc3ZGRhYzQ1MzYyMmYyZGQ0OGY3YWRkZDA4NDYxOWU5NTRiYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMWMyNzNiNTM0MmU0ODBkZjM2MGI1NjBkZTEyMzA3MmYwZTI4ODc5YjZhNDNmN2UwMzFjNjJjMTM2M2FlMTBmOCJ9"
+        },
+        {
+          "resource": "repo://common/src/common/llm.py#L63-L90",
+          "version": "repo-lines-v1:sha256:0d9d30ff357e5e2bbb98fe433c6d99b64ee6ce71772230b04c8917b45c3bec74:eyJzZWxlY3RlZExpbmVDb3VudCI6MjgsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjN2FkNDkzOGY5M2VkMmEyNmU3YzAyMDAyOGQxOTVhNTEwOTMyYzViMTBiZTFkNTg1MDU1NGQ1OGE1OTY1ODAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjMwYzFmMTg4ZjE0MmVkN2E4MjQ2ODBiMjA3MTcyYzU1MTliYzYxNGE0OGZkYTdjZjE2N2VkYjhkZGY3OTk1NmMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjkzZTdhYWIyN2JiNWQ2MjU0ZjY4OGU5NjhmODNlYTkyNmVlOTFkMjdkNTk3NTY5MDdhMjYyY2I2Zjk0NjU4NzQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjJkYjIzYWJiYjMzMzlkMWI3YjdkOWRhYjUxZWYzZTZjMTBjMjBiN2MyOGEzNjJlMDA2ZjM2MmM4MzM5ZDEwOTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_0ba207c599124e55a7e86c0d730c2320",
+      "statement": "Shared settings load the repository-root `.env` and environment variables case-insensitively, ignore unknown fields, cache settings through `get_settings()`, and provide default local PostgreSQL and Qdrant URLs.",
+      "evidence": [
+        {
+          "resource": "repo://common/src/common/config.py#L12-L20",
+          "version": "repo-lines-v1:sha256:919eef4184cbfc1b4b6f27c0775ee4f730ec2a95694bee559ac8a63e0ecfcdf3:eyJzZWxlY3RlZExpbmVDb3VudCI6OSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZmM4NjMzMWM5MGI3OGNkYjkxN2ZkNWJkNjlmYzA3MTRkNWE1ZmU4NDYwZDg3NjI3OWUxNWZmNDJmZmM3MjM1YyIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMzBjMWYxODhmMTQyZWQ3YTgyNDY4MGIyMDcxNzJjNTUxOWJjNjE0YTQ4ZmRhN2NmMTY3ZWRiOGRkZjc5OTU2YyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmRjMTE2MjY5NGRmZmE3MDQ2NTkwMDYxMTE1MGJjMTg5NWY5ZWY0ZGI1ZDEyM2MyYWUzOTIxMjM0YTVjYTY2OCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzFlYzY0NzlkMGY5NjZkMzM3NzEzYzhlNDVhMjE2YTVkNmI3ZTQxYzZjNjRiYTU3Y2MyYWMyZjJlMjgyY2I3MCJ9"
+        },
+        {
+          "resource": "repo://common/src/common/config.py#L22-L47",
+          "version": "repo-lines-v1:sha256:46e519d30d74166d1a58c5a2c9dee14c91f09a3f7023bbef68e66ae78e10561e:eyJzZWxlY3RlZExpbmVDb3VudCI6MjYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ5NmZhNGEwMDdmNzI5YWNiNzZkOTUxOTIyZDM3ZDlkMjFmMDliNGY4NWNmNTNmOGMxZjhlZWJkMWE3MWRmNjAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFiZTliNGQzMjVhZTAyYTY4NmU1MzNkNTc2OTBiNjZkYTkxNzc3ZDkzY2Q5NjMwMWI4MGIwYjJjZmZhOWZlNTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjZkODA1NTViMDI1YTUxNDEwZThhOTBmNmIyODY4ZTdmNTZlZjQ5M2ZiMDk1OThiOTUxYzUxNGNkNzI5ZWQ5OGQiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdjODRhODc4OWU5Y2M3NGY2YjIwOGZlNWRkN2I2NzQ3NzBlYzdjNmQ2OWMxMzIwMTdlNjMwNWNmNDIzOWUzMDUifQ"
+        },
+        {
+          "resource": "repo://common/tests/test_config.py#L10-L41",
+          "version": "repo-lines-v1:sha256:0268f642bf8a7a216a2c671f732797c04cfc1a0dfea67a4fe0738f4cffd40050:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY0OWM2YjM5MDE4Mzc1ZTJlODY1ODI1NzVkMTU2YzQyN2FjNjJhNDJkYjkyM2M0YTI0OTJmNDgxNjQ1NzQ0NDUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFlMjQzMzliN2VjNTNlNDMzYjkyNThiZDA0MmNhZmVmMzUzMTFkM2RhY2I0MGVlZDU0YzhmMjkzODljNGIxZjkiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjYyNmFjZmJhMGViNmU3Yjc5ZGMzYTlmN2Y4NmFkNTAzY2UxYzliMDk2OGM0OTllYmU1YjhjOWQ1YzFiMTc3ZGMiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_f0437e325f264881a9ff18aa5aaf498e",
+      "statement": "The Docker configuration runs PostgreSQL 16 with named `postgres-data` storage and a `pg_isready` healthcheck, and Qdrant 1.12 with named `qdrant-data` storage and host-configurable ports; Qdrant's internal gRPC port is configured as 6334.",
+      "evidence": [
+        {
+          "resource": "repo://docker/.env.example#L1-L5",
+          "version": "repo-lines-v1:sha256:51bebe31dc3aff7fdce76a55d4d44787846619ab8a59c00c7277f6292b65ca39:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYzFhNjllNTdjYzRiMTYyODg3MzQ5YzYyZjJhZGUwMGNiNzMyNDc3MjdjZWFlNDMzNTVhYTQxZWRmOWZjY2MyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmYzYjFhOTMzOWM1YTU3MDkzYTIzNzE5MmEzZWMyM2MzYTMxYjM1ODEyNDQzMTFlMjFmYmYzZmJiN2JhYzhhYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://docker/docker-compose.yml#L1-L32",
+          "version": "repo-lines-v1:sha256:6a1f8588083bc44501e495534884e880212d8d38509b23c4cb4c04b94517deac:eyJzZWxlY3RlZExpbmVDb3VudCI6MzIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImZhNzNmY2NkYzk5ZWE4MzU5NjdjN2RlZTdlZmJlZDFmM2NhODcyNjBkOTI5MzE4NTBmZGQ2NmRhOGNiMTJmMWQiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjYxMWMxNDhjYzk4Y2ZjZGVlMWViOTA4Y2E0ZTgwODgwMTM1OGFmODQyMTM5MTgyYmFlYzNjZDRmZGY4MGM2MjUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImM3OTYzZmZmMTlhMWFjM2IwMGI5MmRmYmY5OTdkZjBlYjBhNzQzNWJlYzY4OTg0YjZkMDQ1NDM3YzRkYTcxMWYifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_1096ccaed5ad4babb0f857331e5980b5",
+      "statement": "`scripts/dev-up.sh` creates `docker/.env` from its template when absent, sources it, starts Compose in detached mode, and waits up to 30 seconds for both Compose-reported healthy PostgreSQL and Qdrant `/healthz`; on failure it prints Compose status and exits nonzero.",
+      "evidence": [
+        {
+          "resource": "repo://scripts/dev-up.sh#L1-L36",
+          "version": "repo-lines-v1:sha256:00c360aa86142c75518b36fa4893dd8e014272ab127356a6cea4c75a0b2b5d1c:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkOTVmYzA0YTgwYzk1MmY0OWNlNDE4ODYyN2M1M2IwZmJlOGM0NDA0MWI5NTJkNTkyYWNkMWRlOTk4NjE0NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBjNjg2OGMyYzQ0ZjA1MzYxOWNlZjFjYzM4M2UxZDUzMDc0M2I1NzRjYTE5MmFjZTkxNjhhOWNjZjQ2YTg2ZTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_435eeec1a4c84d7082adafb3256a9f91",
+      "statement": "`scripts/dev-down.sh` changes to the Docker directory and runs `docker compose down`; because it supplies no volume-removal flag, normal scripted shutdown does not request removal of the named data volumes.",
+      "evidence": [
+        {
+          "resource": "repo://docker/docker-compose.yml#L12-L13",
+          "version": "repo-lines-v1:sha256:0a5956063a133eb601871458e2bc28683927078cc7f6aab4a05d5d7fd4c2860e:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEzZjRkOTY2MWU5ZDJjM2UxYTI4OWU1ODMyMjk5YmVhMTRjZGI2NGJmODg2NjFkZjcxN2IxMmZhMDJkMDExZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjRiYTBkM2MyZWM2ZWQwZTNjNjNjMjA0NWNlMTc3NjYxYzU4MWExN2VmZWNlOTE3ZDdjNjJjZDVkZmE4NzBlYSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNmY4NTY4ZGNjZDUzMWMxZTNmMjg2NjQzODRhMzdhZGEzYWFkY2NhZWRjMDE1NTA2MGNkNTNjMWNmMjBmY2FhNyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMjcyNTNiNTUyMzI2NDJlZjkxMjRkMzQxZTdkODc2YmZiZTRhNGM2M2FiZDQyZWUxYTFhYjg2YmM1ZGY4Mzk4MyJ9"
+        },
+        {
+          "resource": "repo://docker/docker-compose.yml#L26-L32",
+          "version": "repo-lines-v1:sha256:8d30b59173d3fb6812c66da96c2600e17483cf5a2e999f4678b4d2fd30f27f79:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEzZjRkOTY2MWU5ZDJjM2UxYTI4OWU1ODMyMjk5YmVhMTRjZGI2NGJmODg2NjFkZjcxN2IxMmZhMDJkMDExZSIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNjExYzE0OGNjOThjZmNkZWUxZWI5MDhjYTRlODA4ODAxMzU4YWY4NDIxMzkxODJiYWVjM2NkNGZkZjgwYzYyNSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiYTgyZGE3MTJmMTRiMWEwYTJjNGE0YjhiMjU5Nzg2YmNjMWUyZDJlMDQ0OWNiZWY1OTdmMWFkMjA2NDA0YzU3NiIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjEsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiYzc5NjNmZmYxOWExYWMzYjAwYjkyZGZiZjk5N2RmMGViMGE3NDM1YmVjNjg5ODRiNmQwNDU0MzdjNGRhNzExZiJ9"
+        },
+        {
+          "resource": "repo://scripts/dev-down.sh#L1-L6",
+          "version": "repo-lines-v1:sha256:80990d099696e1f3f43753c7d7dfa70f162ebe7bfc312984bee59af660a9d420:eyJzZWxlY3RlZExpbmVDb3VudCI6NiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMWQ5NWZjMDRhODBjOTUyZjQ5Y2U0MTg4NjI3YzUzYjBmYmU4YzQ0MDQxYjk1MmQ1OTJhY2QxZGU5OTg2MTQ2NiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGE3NTVmNGZkNjJlOGQ0NWY3YzIzMTgxNzFlZWZlZDg5ZDg1NDI2YjM4ZjQ3Y2UxNmMxNTU4ZDBlNDk2N2FjZiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_5dd445a231bf4b9cbcb479bc7090da02",
+      "statement": "P0 is launched as `uv run uvicorn P0_smoke.server:app --reload --port 8000`; its completion endpoint requires a nonempty messages list, returns `text/event-stream`, wraps streaming in LangSmith setup, and converts exceptions after streaming begins into an SSE `error` event with code `agent_exception`.",
+      "evidence": [
+        {
+          "resource": "repo://README.md#L43-L56",
+          "version": "repo-lines-v1:sha256:e65944e463cdbdce34d7e85395234a1e022b7970fca319c3e2cd7781094378e2:eyJzZWxlY3RlZExpbmVDb3VudCI6MTQsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBlMzU4NWM5NzFmZTUyMGNjMmYzYWZlMGRiYTVkOGMyMmRmNWFkMWExYjZlMzczYjRhZDUzM2U4ZjIyNThiM2UiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjY1NzVmNDljNmQ5Y2JmYjJiZTFlZTMxMmU3NTUxMWVjMmIyMTVkNTAzODVlYjY2Njc1YzNiMDM0YTE1NGNhNjMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImY5OTRiYjFmZTkzMDIzYjZmNTkyNmI4NTZiMWUyMGE4Y2MzN2IwNjU1MGVmZWZiNjU3ZmYxNjM4NGJlZjFmMzUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImY5ZGVjZTZkZGQ4MTg0YjgyMWZmZDdhNzNmY2NmZTFiN2YzZmI3MTc5ZTVhZjUzNDJhMGI0YzgzZjI4NmQyOTIifQ"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/src/P0_smoke/server.py#L26-L61",
+          "version": "repo-lines-v1:sha256:3dade4be84fa7a2d31bd850f5d8cafd6e857d63b070fcfb0cee3733f900a298e:eyJzZWxlY3RlZExpbmVDb3VudCI6MzYsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6ImRjYTRlNTdmOWI5MTYzOWE2ZjI2MjJjN2FmYzA5ZTc4M2Y1ZTVlZmM1YjJkODg4ZDFjMDZlMzliODUyNjMwZmIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjViYTZkYjA2NTAyNmU1ZDZiMmUyODdiMmUzZGJjMGNhOTUzZjBjYjZkMmIwYmZhMmY1NmIxMWY0Yjc0MmMzOGIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6IjMwNjMzZGYzMWI5NGJmODg1MWQ0NzFhMTYxODFhZjMwYjY4NmYxNDMwODNjYTg1ZGRlMmQyZTU1ZmI2NDE3NWIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L16-L54",
+          "version": "repo-lines-v1:sha256:227de3cd214851b338b8069a80d2a45a559175d5e320e8bfb15c2ec4c7976eaf:eyJzZWxlY3RlZExpbmVDb3VudCI6MzksImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFmZjU2YzFhNjRiNzQ3MDg3ZjZkODM2MzRiNzk2ZTI2Zjg2MjNmNGVhMWRiYWZhNzlkYjljMWRkNTE4YWFiOTIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhZjUxMDNkZTgwM2U0OWI5OTlkYWFhNWFlZWMwOWI5MGY5Njc5NDFjNDA4NGRlZjAzOTQ2MzMxYzQ3ZGExODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYwNzk5Yjg4MGQyZjBlMjhjYWM0Zjk2ZTg5NGIxMWYwNGY2ODFmNjdkYjk1ZDUwMGJkNzQ1Y2JkNDBmMzc0ODciLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0MWMzMGE3N2Q2NmZiZTMwNjMxZGU0YzJkYTQ0ODI4MWVmMjNhM2ZkZmVkY2Y1ZmZiZDE3ZmJkZmNjMTJiZTgifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7f1a836f84f741ecbeff015897bb7c13",
+      "statement": "The UI backend target is configured by `NEXT_PUBLIC_AGENT_BASE_URL` in `.env.local`; Next.js rewrites `/v1/:path*` to that origin with a localhost:8000 default, while the UI's `/api/health` route reports only shell health.",
+      "evidence": [
+        {
+          "resource": "repo://apps/chat-ui/.env.example#L1-L2",
+          "version": "repo-lines-v1:sha256:56fd76fb947ca793580f1fbf73b1fdce5085306e3ce66a3ae9de5e90bbf92a4c:eyJzZWxlY3RlZExpbmVDb3VudCI6MiwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiNjk4Nzg3Mzc5ZDhmNzI5MDE2ODEyNzkwYzI3N2FkOGQyMTY0ZGM0MWQ1Y2RkMjI0YmMyY2JkMTlmNzM1ODY3ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNmIzNGMwYTgxNTM1MDI3NDNhNzUwZDYzNTcxMDFjYmNmNjM3ODQyOTk3YjNkYmVkN2M4ZjBiMWUwNDE3MWEzMyIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://apps/chat-ui/app/api/health/route.ts#L1-L5",
+          "version": "repo-lines-v1:sha256:c25de7da0a61d112b567639c1fef49e93aff8bea45fcb3228dca53f80142122e:eyJzZWxlY3RlZExpbmVDb3VudCI6NSwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiZDgzNmE1OTQ3OTkxYzFjNzg5MjgxNDEyNmIwY2M2MGMwY2E3YTFhOGJiNjBlMjUyZDY2Y2M1NzBhZjY4YTIzNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiNDEyY2EzNDVjY2Y3NWJmOWMwODA2YmNlNjk1YmU4ZGU4MDhiNzk5ODQyNTFhN2E1NGQyMDJjZjYxMDFkZDQ1MSIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjAsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://apps/chat-ui/next.config.ts#L3-L14",
+          "version": "repo-lines-v1:sha256:c368202433f1cea01652999fba2c03975b07429033a2ed6a369c65b044b6b267:eyJzZWxlY3RlZExpbmVDb3VudCI6MTIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjVkYzMxMjNkODcwZGQwNjg5MmE2YTVkMTI3MWJiMjlkZDY3YjI4ZDMzNjY5NWI0MjMyYTZlMzUxZjE2ODk0NjgiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImFhMWQxYTYzMzkwMjI5Yzc5ODM0N2U4M2EwNDA1NDQxYzk0MDAwMzUyODRhZDE2OGMxYmY2Y2RmMWQ3MGEzNzAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjoyLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImMyNWIzNWQzMWY0ZTI4YmM0MzVjMzY3ZGY3YmI1ZGQwMjljMzM3YWUyNTM0NzljOWZmZjY1NWM3ZDRhMDk1YWUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoyLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImQzMTNiNzljZmY3ODk3NmJkY2FmNDdkNGM4Yzg0NGI0MGUxMzExMzU3ZDBmMjlkY2QyYzIyZjYwZDU2Mzk0OTkifQ"
+        },
+        {
+          "resource": "repo://apps/chat-ui/tests/api.test.ts#L1-L11",
+          "version": "repo-lines-v1:sha256:be61f44e483654609bcfb048d28fae5f7d1d58061a421f6738233cc986f9638f:eyJzZWxlY3RlZExpbmVDb3VudCI6MTEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjQ4NmMzOGZkOTVlZjA3MDk2ZTc5NzY4YWRiZTcyMWY4MmM5MTE5YTQxMjljYmUzYjNjMTM3MGYxNmYxNTg3ZGUiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY2ZjViNDBiMTU4NDU3ZDE3ODY0ZjIxNzkwNzg2ZGQ1YTJlY2RiNjRiNjZhNjUxZjc4OGQ0ZTI1Y2QzMzAzZDIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_5d61703c33f145b68ceea0729e92adf2",
+      "statement": "The normal local test script runs pytest with `-m \"not eval\"` and then the UI Vitest suite; pytest defines `integration` for Docker-dependent tests and `eval` for LLM-calling tests, and P0's live streaming tests are marked `eval`.",
+      "evidence": [
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_agent.py#L9-L12",
+          "version": "repo-lines-v1:sha256:de3602303958b9811edf583cfbffa16486db3601590330e3116c898f1255aa49:eyJzZWxlY3RlZExpbmVDb3VudCI6NCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiMmNmZWVhYmQ4M2RlMjFmNGZhMGUyZTdjYmFlNTE4OWU2OWM0MWYzOWEwZjZkNWFmOTllMzNjNWFiNzE3NmViNCIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiMGQ4MGQzYzJiMmE4YjEzNjIyMTQwYTQ1YjU0ZDExZjc0NWRmMzYyZGYxYzA2NTRhOGU0YmNlZWY5Mjg0NjI1NiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiMzc0OTljMGQwNmQwYTA3YTEzNDM5Y2Y3YWYyNjQwN2QxNGZlNGZmZWU0ZWU0ZjE3MWUzYTQ3YmJkYTJiZWM3MyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjMsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiNWFiN2IyNzJhYjRlMjUxNzViNWZkMjRjMTNjZmU1NjM0MjUxNGMwMjc5NDZmMDNiNTMwNWRmMjAzMzc4NzlmOSJ9"
+        },
+        {
+          "resource": "repo://agents/P0-smoke/tests/test_server.py#L34-L54",
+          "version": "repo-lines-v1:sha256:50f861c22b26fc6297d23461d8d3a3b6c6b9d1848aa65c63e14735bfa6d61ef1:eyJzZWxlY3RlZExpbmVDb3VudCI6MjEsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6Ijg1M2UwNzlkMzRkY2ZlM2NkYWM5N2ZkYTEwMTMxYjFhZDU2ODYzNDMxNzBlNTZlODc0NDVjY2NlOGM2MzU4YzIiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjBhZjUxMDNkZTgwM2U0OWI5OTlkYWFhNWFlZWMwOWI5MGY5Njc5NDFjNDA4NGRlZjAzOTQ2MzMxYzQ3ZGExODAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImYyOTljYjZmNGRjZmJhNGIwYThmMTM0N2JmOGQ3ZGI3ODdmODdiODI3MzFmYTdmMjNhNTliMjYzOTdkODA5ZmIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjoxLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6Ijk0MWMzMGE3N2Q2NmZiZTMwNjMxZGU0YzJkYTQ0ODI4MWVmMjNhM2ZkZmVkY2Y1ZmZiZDE3ZmJkZmNjMTJiZTgifQ"
+        },
+        {
+          "resource": "repo://pyproject.toml#L25-L31",
+          "version": "repo-lines-v1:sha256:56e0f938a110aef71f2f625f9359708ac1967bc29f33fd91861b309747e8f491:eyJzZWxlY3RlZExpbmVDb3VudCI6NywiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiODY3NmU2NDE0NjVhNjU1MWU5ZTljZmZkN2ZhYTFlNmE0MmY5YjcyNDgwOTgxM2M5MDNkN2VkY2I1MmYzMDA2ZiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiZjk0MTZlMDlmNzhiYTMxNmMwMzI1NjgyMTNiODU1ZWU3NTZlNDE1NjVkOTE4ZjA5NTE5YzgxZmQ2MjBmNDA2MCIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjMsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNWRkMzEyODNkNGUzMzFhYzUwNDdhZTIxMjA5NjNlZjRhYWJkYzc0NzViMmFjZjI4ZjlmMWEwY2U5ZmU3NjIzOCIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjAsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSJ9"
+        },
+        {
+          "resource": "repo://scripts/test.sh#L1-L15",
+          "version": "repo-lines-v1:sha256:01338cf01b812030a9ac13c667b02616958d6bcddc4ef99236d169c75c4674b6:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjFkOTVmYzA0YTgwYzk1MmY0OWNlNDE4ODYyN2M1M2IwZmJlOGM0NDA0MWI5NTJkNTkyYWNkMWRlOTk4NjE0NjYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6IjRmMzkxMzcyNzMzYTQ1OGFlMzdjN2Y3ZDIyZTRlZTU1MGJlMDI4OWFjOTIxZDdhMDUzOWM1M2UwMjdiZjJkNTYiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_775bcb241f754826b31df2b7c669a276",
+      "statement": "The CI workflow runs on pushes to `main`/`foundation`, pull requests to `main`, and manual dispatch; it separately syncs and checks Python with Ruff, strict mypy, non-eval pytest, and format checks, and installs locked UI dependencies before TypeScript typecheck, lint, and tests.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/ci.yml#L1-L55",
+          "version": "repo-lines-v1:sha256:2ea1daaa61b8eb8243b8dfac08f654951acca4d5f241a126e716d0c93800106b:eyJzZWxlY3RlZExpbmVDb3VudCI6NTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2ZTFiMzJmYTA5MDc5YWUyZjAwMDFmZmYwZWNhMjdiNDk4NTk1N2Q0ZWI0ODU3OTI5YjNjZjA1OGZhYWU1NDEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImQ1MDVmYTc0NmI3NzE0OGFkNmIwZTg3NDllYThmNDhiODY5OTFkZWRmMGI4NWFmNjg5ZWY0MGQ1MGQ2YjY2NzIiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        }
+      ]
+    },
+    {
+      "id": "claim_7b669ce89ee04771a0b3698ede12b59d",
+      "statement": "The OpenWiki update workflow is separately triggered by manual dispatch or a daily 08:00 UTC cron, checks out full history so update comparison can find the last documented commit, runs `openwiki code --update --print`, and creates/updates a review pull request on `openwiki/update` limited to documentation-related paths.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L1-L22",
+          "version": "repo-lines-v1:sha256:b97be1500fe6c3ded92862a542eb9f0d5703dab1ed0fd6fa12dd79f42fffaa56:eyJzZWxlY3RlZExpbmVDb3VudCI6MjIsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjA2MDI3ODdhZjZkY2MwODM0ZGUxMjFjYmIxY2I5NWY5NDU5YjcyMWVhYjAzNDlmMTA1MDFiOTk2YzFjNzdmZmYiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImUzMDk3NWM3ZTIwZWJhODg1N2VmZDMxZTYyYjY2NWY3ODdlNTE2NDE5NTFhNjYwNzg5ZmJhOTMzYTYzNDcyMTUiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjowLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6IjdlZjE2ZTNjOGI1NGUyYjIwNDgxOTZhYmI0Y2Q4MGQyMmE1MDhlY2Q2MDc0NjEyNGEyZWEyZGNjMzQxNzk5ZDEifQ"
+        },
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L24-L63",
+          "version": "repo-lines-v1:sha256:1390cc23488cf889a3e0b77fde999dc525990f09e7f6542614237ef2463b2bb6:eyJzZWxlY3RlZExpbmVDb3VudCI6NDAsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjM2ZDcxMGExNzYyODk1Y2Q0YzkzYzZhMmEyOWU2MjkyNGQ2ZjczMGQ5NWUyYWQxNzdjYTUwNDhlYjU2OWM5YWEiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImY0Nzc5NmQzMTczMmZiY2U4OTk4YTJmN2U3YjFiYjk3NTVjMjNlNTg1MDMyMGI5MDkzN2Q4MmMzZmQwZTYyYTAiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhZDVlY2I5NDI1MGZlNjFjYWJhYTJiZTQzMGYyMjc2YTgxOWM1OWUwMDFmNzNmMGI3NTFlZmM1ZTkyMGZjYTIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjowLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUifQ"
+        },
+        {
+          "resource": "repo://AGENTS.md#L3-L10",
+          "version": "repo-lines-v1:sha256:cb7fb6c3ed0db2f9a666e8426aa041c2ea98b5b2458d051d1eff45f3db580f8f:eyJzZWxlY3RlZExpbmVDb3VudCI6OCwiZmlyc3RTZWxlY3RlZExpbmVIYXNoIjoiYjQ4MzZlZDdlMDA1Mzc3NWEwYTk2NmNlODYxMzRiMjM0N2Q4NTFhN2IwMmY0ODEyYmViMmM1OWQxYzY4ZDUyNiIsImxhc3RTZWxlY3RlZExpbmVIYXNoIjoiYWI1Mzk1M2JmYjcyYzEyNjJiYmFlMmVhY2E3MmNhYmYxYWY0OTkyN2EwYmJhMTE1N2IyZDViZGIyODVjNGJkMiIsInByZWNlZGluZ0NvbnRleHRMaW5lQ291bnQiOjIsInByZWNlZGluZ0NvbnRleHRIYXNoIjoiNGI4NTllNTVlNGIyZDI2MmI1NDY0YmU5N2RlYzIxM2FhZWIxZTVjY2QwMGQ0MTAyMGRkYWQ0MTNlZGI3NzZlYyIsImZvbGxvd2luZ0NvbnRleHRMaW5lQ291bnQiOjIsImZvbGxvd2luZ0NvbnRleHRIYXNoIjoiMzA4OWRmOTNmOGJhNTdhNGRkYmZkOGYwMTM5NjJjMzk3OGNlNGRiNjgxOTljNGRhNjY2NjQ5YjA5OTZjZWRhOSJ9"
+        }
+      ]
+    },
+    {
+      "id": "claim_c6c4d311443b467a80c9238f7c12c29c",
+      "statement": "The OpenWiki workflow uses repository secrets for the LangSmith connector and optional workflow tracing, and requires unattended credentials to be supplied for its configured OpenAI ChatGPT provider because browser-login authentication has no unattended equivalent.",
+      "evidence": [
+        {
+          "resource": "repo://.github/workflows/openwiki-update.yml#L33-L47",
+          "version": "repo-lines-v1:sha256:56e1a372cf7995ef7acf8f444fc84d61e03ad64c72c454214d9b60236e606e8a:eyJzZWxlY3RlZExpbmVDb3VudCI6MTUsImZpcnN0U2VsZWN0ZWRMaW5lSGFzaCI6IjcwZThmOWZhNDBlN2JkMDQ5OWQxYzBkODNmZDc1OGFhODViMzA4NDJkYmQ2MWYwZWE2YjdhZTEwZWZlYzc2ZDAiLCJsYXN0U2VsZWN0ZWRMaW5lSGFzaCI6ImI4ZjhiODAyNzQxYWZjN2ZiMzg0MGZlY2RjNDNkN2Y4ZTQwMjNiYmZjYjViN2VjNjVlZTA4ODc5OGQ4NTE3MTMiLCJwcmVjZWRpbmdDb250ZXh0TGluZUNvdW50IjozLCJwcmVjZWRpbmdDb250ZXh0SGFzaCI6ImFhMmQ5NWViODViNjA0YjdiZmIxNzRiMzdlNThkYzg1ODVlZjcyNjUzNTAzMGExZTE4YTZkZDUwNTQ1OGM5YjIiLCJmb2xsb3dpbmdDb250ZXh0TGluZUNvdW50IjozLCJmb2xsb3dpbmdDb250ZXh0SGFzaCI6ImEzNTc0NmFhY2Y2ODI2ODUyOGYxZDJkNjY0NDM2MTkzZDZmMDFlYmQ3MGY4NTNmMmE4YTMzYjYyODY1NmRlNWYifQ"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "by": "openwiki/0.4.3",
+    "at": "2026-08-29T08:58:08.509Z"
+  }
+}
