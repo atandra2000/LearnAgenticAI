@@ -31,12 +31,13 @@ def test_request_validation_missing_field(client: TestClient) -> None:
     assert response.status_code == 422
 
 
+@pytest.mark.eval
 def test_endpoint_accepts_well_formed_request(client: TestClient) -> None:
     """A well-formed request returns 200 + text/event-stream content type.
 
-    This test does not consume the stream body (would require a live LLM
-    key); it only verifies the request is accepted and the response
-    headers are correct for an SSE stream.
+    Eval-marked: the first stream chunk only arrives after the real
+    OpenRouter call, so this test makes a live API call when a key is
+    present and must not run under `pytest -m "not eval"`.
     """
     with client.stream(
         "POST",
