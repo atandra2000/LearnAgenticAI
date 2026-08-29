@@ -120,7 +120,7 @@ LearnAgenticAI/
 - [ ] **Step 1: Initialize git repo**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git init
 git config user.email "atandrabharati@users.noreply.github.com"  # adjust if needed
 git config user.name "Atandra Bharati"
@@ -134,7 +134,7 @@ echo "3.11" > .python-version
 
 - [ ] **Step 3: Write `.gitignore`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/.gitignore`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/.gitignore`:
 
 ```gitignore
 # Python
@@ -197,7 +197,7 @@ logs/
 
 - [ ] **Step 4: Write root `pyproject.toml` (uv workspace)**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/pyproject.toml`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/pyproject.toml`:
 
 ```toml
 [project]
@@ -235,7 +235,7 @@ markers = [
 
 - [ ] **Step 5: Write root `README.md`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/README.md`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/README.md`:
 
 ```markdown
 # LearnAgenticAI
@@ -308,7 +308,7 @@ Then open http://localhost:3000.
 curl -LsSf https://astral.sh/uv/install.sh | sh
 export PATH="$HOME/.local/bin:$PATH"
 
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv sync
 ```
 
@@ -325,7 +325,7 @@ Expected: `ok 3.11.x`
 - [ ] **Step 8: First commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add .gitignore .python-version pyproject.toml README.md uv.lock
 git commit -m "chore: init uv workspace monorepo"
 ```
@@ -343,7 +343,7 @@ git commit -m "chore: init uv workspace monorepo"
 
 - [ ] **Step 1: Write `.env.example` (top-level)**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/.env.example`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/.env.example`:
 
 ```bash
 # LLM providers
@@ -370,7 +370,7 @@ QDRANT_API_KEY=
 
 - [ ] **Step 2: Write `docker/.env.example`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/docker/.env.example`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/docker/.env.example`:
 
 ```bash
 POSTGRES_USER=agentic
@@ -382,7 +382,7 @@ QDRANT_PORT=6333
 
 - [ ] **Step 3: Write `docker/docker-compose.yml`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/docker/docker-compose.yml`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/docker/docker-compose.yml`:
 
 ```yaml
 services:
@@ -427,7 +427,7 @@ volumes:
 
 - [ ] **Step 4: Write `scripts/dev-up.sh`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/scripts/dev-up.sh`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/scripts/dev-up.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -467,7 +467,7 @@ exit 1
 
 - [ ] **Step 5: Write `scripts/dev-down.sh`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/scripts/dev-down.sh`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/scripts/dev-down.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -481,13 +481,13 @@ docker compose down
 - [ ] **Step 6: Make scripts executable**
 
 ```bash
-chmod +x /Users/atandrabharati/Projects/LearnAgenticAI/scripts/dev-up.sh /Users/atandrabharati/Projects/LearnAgenticAI/scripts/dev-down.sh
+chmod +x ~/Desktop/CoreProjects/LearnAgenticAI/scripts/dev-up.sh ~/Desktop/CoreProjects/LearnAgenticAI/scripts/dev-down.sh
 ```
 
 - [ ] **Step 7: Boot services and verify**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 bash scripts/dev-up.sh
 ```
 
@@ -518,7 +518,7 @@ Expected: A row starting with `PostgreSQL 16.x`.
 - [ ] **Step 10: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add .env.example docker/ scripts/
 git commit -m "chore: add docker compose for postgres + qdrant"
 ```
@@ -536,7 +536,7 @@ git commit -m "chore: add docker compose for postgres + qdrant"
 
 - [ ] **Step 1: Write `common/pyproject.toml`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/pyproject.toml`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/pyproject.toml`:
 
 ```toml
 [project]
@@ -583,7 +583,7 @@ python_version = "3.11"
 
 - [ ] **Step 2: Write `common/src/common/__init__.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/src/common/__init__.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/src/common/__init__.py`:
 
 ```python
 """Shared utilities for LearnAgenticAI agents."""
@@ -595,7 +595,7 @@ __all__ = ["Settings", "settings"]
 
 - [ ] **Step 3: Write `common/src/common/config.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/src/common/config.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/src/common/config.py`:
 
 ```python
 """Typed process configuration loaded from env + .env."""
@@ -653,7 +653,7 @@ settings = get_settings()
 
 - [ ] **Step 4: Write `common/tests/__init__.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/__init__.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/tests/__init__.py`:
 
 ```python
 """Tests for the common package."""
@@ -661,7 +661,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/__init__.py
 
 - [ ] **Step 5: Write `common/tests/test_config.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/test_config.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/tests/test_config.py`:
 
 ```python
 """Tests for common.config.Settings."""
@@ -714,7 +714,7 @@ def test_get_settings_is_cached() -> None:
 - [ ] **Step 6: Re-sync the workspace**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv sync
 ```
 
@@ -723,7 +723,7 @@ Expected: Resolves and installs `common` + dependencies. New entries appear in `
 - [ ] **Step 7: Run the config tests**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common pytest common/tests/test_config.py -v
 ```
 
@@ -732,7 +732,7 @@ Expected: 4 tests pass.
 - [ ] **Step 8: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add common/
 git commit -m "feat(common): add pydantic settings singleton"
 ```
@@ -750,7 +750,7 @@ git commit -m "feat(common): add pydantic settings singleton"
 
 - [ ] **Step 1: Write `common/src/common/tracing.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/src/common/tracing.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/src/common/tracing.py`:
 
 ```python
 """LangSmith tracing helpers.
@@ -811,7 +811,7 @@ def current_project() -> str | None:
 
 - [ ] **Step 2: Write `common/tests/test_tracing.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/test_tracing.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/tests/test_tracing.py`:
 
 ```python
 """Tests for common.tracing."""
@@ -869,7 +869,7 @@ def test_setup_uses_custom_prefix(monkeypatch: pytest.MonkeyPatch) -> None:
 - [ ] **Step 3: Run the tracing tests**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common pytest common/tests/test_tracing.py -v
 ```
 
@@ -878,7 +878,7 @@ Expected: 4 tests pass.
 - [ ] **Step 4: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add common/src/common/tracing.py common/tests/test_tracing.py
 git commit -m "feat(common): add LangSmith tracing context manager"
 ```
@@ -896,7 +896,7 @@ git commit -m "feat(common): add LangSmith tracing context manager"
 
 - [ ] **Step 1: Write `common/src/common/llm.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/src/common/llm.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/src/common/llm.py`:
 
 ```python
 """Multi-provider LLM factory.
@@ -993,7 +993,7 @@ def model_id_for(task: TaskName | str) -> str:
 
 - [ ] **Step 2: Write `common/tests/test_llm.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/test_llm.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/tests/test_llm.py`:
 
 ```python
 """Tests for common.llm — no live API calls; only config & routing."""
@@ -1061,7 +1061,7 @@ def test_get_model_missing_ollama_key_raises(monkeypatch: pytest.MonkeyPatch) ->
 - [ ] **Step 3: Run the llm tests**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common pytest common/tests/test_llm.py -v
 ```
 
@@ -1070,7 +1070,7 @@ Expected: 6 tests pass.
 - [ ] **Step 4: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add common/src/common/llm.py common/tests/test_llm.py
 git commit -m "feat(common): add multi-provider LLM factory"
 ```
@@ -1088,7 +1088,7 @@ git commit -m "feat(common): add multi-provider LLM factory"
 
 - [ ] **Step 1: Write `common/src/common/ui_bridge.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/src/common/ui_bridge.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/src/common/ui_bridge.py`:
 
 ```python
 """SSE event schema shared by agent backends and the chat UI.
@@ -1181,7 +1181,7 @@ def trace_meta_event(run_url: str, run_id: str) -> bytes:
 
 - [ ] **Step 2: Write `common/tests/test_ui_bridge.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/common/tests/test_ui_bridge.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/common/tests/test_ui_bridge.py`:
 
 ```python
 """Tests for common.ui_bridge."""
@@ -1276,7 +1276,7 @@ def test_trace_meta_event_payload() -> None:
 - [ ] **Step 3: Run ui_bridge tests**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common pytest common/tests/test_ui_bridge.py -v
 ```
 
@@ -1285,7 +1285,7 @@ Expected: 9 tests pass.
 - [ ] **Step 4: Run the full common test suite**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common pytest -v
 ```
 
@@ -1294,7 +1294,7 @@ Expected: 4 (config) + 4 (tracing) + 6 (llm) + 9 (ui_bridge) = 23 tests pass.
 - [ ] **Step 5: Run ruff + mypy on common/**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package common ruff format common/src common/tests
 uv run --package common ruff check common/src common/tests
 uv run --package common mypy common/src
@@ -1305,7 +1305,7 @@ Expected: No errors. Fix any issues inline.
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add common/
 git commit -m "feat(common): add SSE event schema shared by agents and UI"
 ```
@@ -1332,7 +1332,7 @@ Expected: prints a version like `9.x` or `10.x`.
 
 - [ ] **Step 2: Write `apps/chat-ui/package.json`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/package.json`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/package.json`:
 
 ```json
 {
@@ -1372,7 +1372,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/package.jso
 
 - [ ] **Step 3: Write `apps/chat-ui/tsconfig.json`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/tsconfig.json`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/tsconfig.json`:
 
 ```json
 {
@@ -1401,7 +1401,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/tsconfig.js
 
 - [ ] **Step 4: Write `apps/chat-ui/next.config.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/next.config.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/next.config.ts`:
 
 ```ts
 import type { NextConfig } from "next";
@@ -1424,7 +1424,7 @@ export default nextConfig;
 
 - [ ] **Step 5: Write `apps/chat-ui/.eslintrc.json`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.eslintrc.json`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/.eslintrc.json`:
 
 ```json
 {
@@ -1434,7 +1434,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.eslintrc.j
 
 - [ ] **Step 6: Write `apps/chat-ui/.prettierrc`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.prettierrc`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/.prettierrc`:
 
 ```json
 {
@@ -1447,7 +1447,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.prettierrc
 
 - [ ] **Step 7: Write `apps/chat-ui/.env.example`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.env.example`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/.env.example`:
 
 ```bash
 # Where the agent FastAPI server runs. Rewritten to /v1/*.
@@ -1456,7 +1456,7 @@ NEXT_PUBLIC_AGENT_BASE_URL=http://localhost:8000
 
 - [ ] **Step 8: Write `apps/chat-ui/.gitignore`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/.gitignore`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/.gitignore`:
 
 ```
 node_modules/
@@ -1470,7 +1470,7 @@ next-env.d.ts
 
 - [ ] **Step 9: Write `apps/chat-ui/app/layout.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/app/layout.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/app/layout.tsx`:
 
 ```tsx
 import type { Metadata } from "next";
@@ -1492,7 +1492,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 - [ ] **Step 10: Write `apps/chat-ui/app/globals.css`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/app/globals.css`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/app/globals.css`:
 
 ```css
 :root {
@@ -1547,7 +1547,7 @@ button {
 
 - [ ] **Step 11: Write placeholder `apps/chat-ui/app/page.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/app/page.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/app/page.tsx`:
 
 ```tsx
 export default function HomePage() {
@@ -1563,7 +1563,7 @@ export default function HomePage() {
 - [ ] **Step 12: Install dependencies**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm install
 ```
 
@@ -1572,7 +1572,7 @@ Expected: `Done` and a populated `node_modules/`. `pnpm-lock.yaml` is created.
 - [ ] **Step 13: Boot the dev server briefly to verify**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm dev &
 DEV_PID=$!
 sleep 8
@@ -1586,7 +1586,7 @@ Expected: `200`.
 - [ ] **Step 14: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add apps/chat-ui/
 git commit -m "feat(chat-ui): init Next.js 15 chat shell"
 ```
@@ -1605,7 +1605,7 @@ git commit -m "feat(chat-ui): init Next.js 15 chat shell"
 
 - [ ] **Step 1: Write `apps/chat-ui/lib/types.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/lib/types.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/lib/types.ts`:
 
 ```ts
 export type Role = "user" | "assistant" | "system" | "tool";
@@ -1641,7 +1641,7 @@ export type StreamEvent =
 
 - [ ] **Step 2: Write `apps/chat-ui/lib/api.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/lib/api.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/lib/api.ts`:
 
 ```ts
 import type { StreamEvent } from "./types";
@@ -1703,7 +1703,7 @@ export async function* streamChat(
 
 - [ ] **Step 3: Write `apps/chat-ui/components/MessageBubble.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/components/MessageBubble.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/components/MessageBubble.tsx`:
 
 ```tsx
 import type { Message } from "@/lib/types";
@@ -1752,7 +1752,7 @@ export function MessageBubble({ message }: { message: Message }) {
 
 - [ ] **Step 4: Write `apps/chat-ui/components/ToolCallTree.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/components/ToolCallTree.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/components/ToolCallTree.tsx`:
 
 ```tsx
 "use client";
@@ -1807,7 +1807,7 @@ export function ToolCallTree({ call }: { call: ToolCall }) {
 
 - [ ] **Step 5: Write `apps/chat-ui/components/TraceLink.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/components/TraceLink.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/components/TraceLink.tsx`:
 
 ```tsx
 import type { TraceMeta } from "@/lib/types";
@@ -1833,7 +1833,7 @@ export function TraceLink({ trace }: { trace: TraceMeta }) {
 
 - [ ] **Step 6: Write `apps/chat-ui/components/ChatWindow.tsx`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/components/ChatWindow.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/components/ChatWindow.tsx`:
 
 ```tsx
 "use client";
@@ -1978,7 +1978,7 @@ export function ChatWindow() {
 
 - [ ] **Step 7: Update `apps/chat-ui/app/page.tsx` to mount the chat**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/app/page.tsx`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/app/page.tsx`:
 
 ```tsx
 import { ChatWindow } from "@/components/ChatWindow";
@@ -1996,7 +1996,7 @@ export default function HomePage() {
 - [ ] **Step 8: Typecheck the project**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm typecheck
 ```
 
@@ -2005,7 +2005,7 @@ Expected: No errors. Fix any issues inline.
 - [ ] **Step 9: Boot the dev server and curl the chat page**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm dev &
 DEV_PID=$!
 sleep 8
@@ -2019,7 +2019,7 @@ Expected: `<h1 ... >LearnAgenticAI Chat</h1>`.
 - [ ] **Step 10: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add apps/chat-ui/
 git commit -m "feat(chat-ui): add streaming chat window with tool call rendering"
 ```
@@ -2037,7 +2037,7 @@ git commit -m "feat(chat-ui): add streaming chat window with tool call rendering
 
 - [ ] **Step 1: Write `apps/chat-ui/app/api/health/route.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/app/api/health/route.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/app/api/health/route.ts`:
 
 ```ts
 import { NextResponse } from "next/server";
@@ -2049,7 +2049,7 @@ export async function GET() {
 
 - [ ] **Step 2: Write `apps/chat-ui/vitest.config.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/vitest.config.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/vitest.config.ts`:
 
 ```ts
 import { defineConfig } from "vitest/config";
@@ -2070,7 +2070,7 @@ export default defineConfig({
 
 - [ ] **Step 3: Write `apps/chat-ui/tests/api.test.ts`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui/tests/api.test.ts`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui/tests/api.test.ts`:
 
 ```ts
 import { describe, it, expect } from "vitest";
@@ -2089,7 +2089,7 @@ describe("GET /api/health", () => {
 - [ ] **Step 4: Run the test**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm test
 ```
 
@@ -2098,7 +2098,7 @@ Expected: 1 passed.
 - [ ] **Step 5: Verify the health endpoint via curl**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 pnpm dev &
 DEV_PID=$!
 sleep 8
@@ -2112,7 +2112,7 @@ Expected: `{"status":"ok"}`.
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add apps/chat-ui/
 git commit -m "feat(chat-ui): add /api/health endpoint and vitest setup"
 ```
@@ -2130,7 +2130,7 @@ git commit -m "feat(chat-ui): add /api/health endpoint and vitest setup"
 
 - [ ] **Step 1: Write `agents/P0-smoke/pyproject.toml`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/pyproject.toml`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/pyproject.toml`:
 
 ```toml
 [project]
@@ -2174,7 +2174,7 @@ python_version = "3.11"
 
 - [ ] **Step 2: Write `agents/P0-smoke/README.md`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/README.md`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/README.md`:
 
 ````markdown
 # P0 — Smoke Agent
@@ -2212,7 +2212,7 @@ POST /v1/chat/completions
 ## Run
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv sync
 
 # Fill in API keys
@@ -2244,7 +2244,7 @@ Per 100 runs (single 50-token response): roughly $0.05 with Claude Sonnet 4.5 vi
 
 - [ ] **Step 3: Write `agents/P0-smoke/src/P0_smoke/__init__.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/__init__.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/__init__.py`:
 
 ```python
 """P0 smoke agent."""
@@ -2252,7 +2252,7 @@ Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/src/P0_s
 
 - [ ] **Step 4: Write `agents/P0-smoke/src/P0_smoke/agent.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/agent.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/agent.py`:
 
 ```python
 """Echo agent for P0 — the simplest possible LangChain chat model call."""
@@ -2323,7 +2323,7 @@ async def invoke(messages: list[BaseMessage]) -> EchoResult:
 
 - [ ] **Step 5: Write `agents/P0-smoke/src/P0_smoke/server.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/server.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/src/P0_smoke/server.py`:
 
 ```python
 """FastAPI server for the P0 smoke agent.
@@ -2391,7 +2391,7 @@ async def chat_completions(req: ChatCompletionRequest) -> StreamingResponse:
 
 - [ ] **Step 6: Write `agents/P0-smoke/tests/test_agent.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/tests/test_agent.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/tests/test_agent.py`:
 
 ```python
 """Tests for P0 agent logic (no live LLM calls)."""
@@ -2442,7 +2442,7 @@ def test_valid_event_types_includes_required() -> None:
 
 - [ ] **Step 7: Write `agents/P0-smoke/tests/test_server.py`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/agents/P0-smoke/tests/test_server.py`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/agents/P0-smoke/tests/test_server.py`:
 
 ```python
 """Tests for the FastAPI server — uses TestClient, no live LLM calls."""
@@ -2506,7 +2506,7 @@ def test_endpoint_accepts_well_formed_request(client: TestClient) -> None:
 - [ ] **Step 8: Sync the workspace**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv sync
 ```
 
@@ -2515,7 +2515,7 @@ Expected: Resolves and installs `P0-smoke` workspace member.
 - [ ] **Step 9: Run the server tests (no LLM required)**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package P0-smoke pytest agents/P0-smoke/tests/test_server.py -v
 ```
 
@@ -2524,7 +2524,7 @@ Expected: 3 tests pass. (The `test_agent.py` tests need an API key; they're mark
 - [ ] **Step 10: Run the full common + P0 test suite**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run pytest -v -m "not eval"
 ```
 
@@ -2533,7 +2533,7 @@ Expected: All non-eval tests pass. (eval tests are skipped by default — they n
 - [ ] **Step 11: Ruff + mypy on P0**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package P0-smoke ruff format agents/P0-smoke/src agents/P0-smoke/tests
 uv run --package P0-smoke ruff check agents/P0-smoke/src agents/P0-smoke/tests
 uv run --package P0-smoke mypy agents/P0-smoke/src
@@ -2544,7 +2544,7 @@ Expected: No errors. Fix any issues inline.
 - [ ] **Step 12: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add agents/P0-smoke/
 git commit -m "feat(P0-smoke): add echo agent + FastAPI server with SSE"
 ```
@@ -2563,7 +2563,7 @@ git commit -m "feat(P0-smoke): add echo agent + FastAPI server with SSE"
 - [ ] **Step 1: Copy `.env.example` to `.env` and fill in API keys**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 cp .env.example .env
 # Edit .env — set OPENROUTER_API_KEY and LANGSMITH_API_KEY
 # (use your editor of choice; sed here is illustrative)
@@ -2575,7 +2575,7 @@ Verify the file has non-empty values for `OPENROUTER_API_KEY` and `LANGSMITH_API
 - [ ] **Step 2: Start the P0 server**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv run --package P0-smoke uvicorn P0_smoke.server:app --port 8000 &
 SERVER_PID=$!
 sleep 6
@@ -2612,7 +2612,7 @@ data: {"run_url":"https://smith.langchain.com/r/...","run_id":"..."}
 - [ ] **Step 4: Start the chat UI**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI/apps/chat-ui
+cd ~/Desktop/CoreProjects/LearnAgenticAI/apps/chat-ui
 cp .env.example .env.local
 pnpm dev &
 UI_PID=$!
@@ -2661,7 +2661,7 @@ wait 2>/dev/null || true
 
 - [ ] **Step 10: Commit a final "smoke verified" note**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/docs/superpowers/plans/2026-08-28-foundation-verified.md`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/docs/superpowers/plans/2026-08-28-foundation-verified.md`:
 
 ```markdown
 # Foundation Plan — Verified
@@ -2687,7 +2687,7 @@ Foundation is verified. P1 (ReAct Research Agent) can begin.
 ```
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add docs/superpowers/plans/2026-08-28-foundation-verified.md
 git commit -m "docs: mark foundation plan verified"
 ```
@@ -2705,7 +2705,7 @@ git commit -m "docs: mark foundation plan verified"
 
 - [ ] **Step 1: Write `.github/workflows/ci.yml`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/.github/workflows/ci.yml`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/.github/workflows/ci.yml`:
 
 ```yaml
 name: CI
@@ -2767,7 +2767,7 @@ jobs:
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add .github/
 git commit -m "ci: add Python + TypeScript workflows"
 ```
@@ -2785,7 +2785,7 @@ git commit -m "ci: add Python + TypeScript workflows"
 
 - [ ] **Step 1: Write `scripts/test.sh`**
 
-Write to `/Users/atandrabharati/Projects/LearnAgenticAI/scripts/test.sh`:
+Write to `~/Desktop/CoreProjects/LearnAgenticAI/scripts/test.sh`:
 
 ```bash
 #!/usr/bin/env bash
@@ -2808,13 +2808,13 @@ echo "==> All tests passed"
 - [ ] **Step 2: Make executable**
 
 ```bash
-chmod +x /Users/atandrabharati/Projects/LearnAgenticAI/scripts/test.sh
+chmod +x ~/Desktop/CoreProjects/LearnAgenticAI/scripts/test.sh
 ```
 
 - [ ] **Step 3: Run the full test suite**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 bash scripts/test.sh
 ```
 
@@ -2823,7 +2823,7 @@ Expected: Python tests pass; TypeScript test passes.
 - [ ] **Step 4: Commit**
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 git add scripts/test.sh
 git commit -m "chore: add top-level test runner script"
 ```

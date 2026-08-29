@@ -33,7 +33,7 @@ POST /v1/chat/completions
 ## Run
 
 ```bash
-cd /Users/atandrabharati/Projects/LearnAgenticAI
+cd ~/Desktop/CoreProjects/LearnAgenticAI
 uv sync
 
 # Fill in API keys
