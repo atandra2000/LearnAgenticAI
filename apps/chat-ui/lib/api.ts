@@ -1,5 +1,16 @@
 import type { StreamEvent } from "./types";
 
+// ponytail: literal set guards the unchecked `as StreamEvent` cast below;
+// extend alongside the StreamEvent union in ./types.ts.
+const VALID_EVENT_TYPES = new Set<string>([
+  "token",
+  "tool_start",
+  "tool_end",
+  "message_end",
+  "error",
+  "trace_meta",
+] satisfies StreamEvent["type"][]);
+
 /**
  * Stream a chat completion from the local agent backend.
  *
@@ -41,7 +52,9 @@ export async function* streamChat(
         const data = line.slice(6);
         try {
           const parsed = JSON.parse(data);
-          yield { type: currentEvent, ...parsed } as StreamEvent;
+          if (VALID_EVENT_TYPES.has(currentEvent)) {
+            yield { type: currentEvent, ...parsed } as StreamEvent;
+          }
         } catch {
           // Skip malformed lines
         }
