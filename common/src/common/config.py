@@ -25,6 +25,9 @@ class Settings(BaseSettings):
     openai_api_key: str = Field(default="", description="OpenAI API key (direct)")
     ollama_cloud_api_key: str = Field(default="", description="Ollama Cloud Pro API key")
 
+    # --- Search / External APIs ---
+    tavily_api_key: str = Field(default="", description="Tavily Search API key")
+
     # --- LangSmith ---
     langsmith_api_key: str = Field(default="")
     langsmith_tracing: bool = Field(default=True)
