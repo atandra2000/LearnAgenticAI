@@ -51,19 +51,19 @@ The monorepo is architected around modular FastAPI agent services, a reusable Ne
 
 ## 🚀 The 10-Project Portfolio Matrix
 
-| Project | Pattern | Core Technologies | Eval & Observability | Production Significance |
+| Project | Pattern | Core Technologies | Eval & Observability | Status |
 | :--- | :--- | :--- | :--- | :--- |
-| **P0: Foundation & Smoke** | Shared Infra Validation | FastAPI, SSE Bridge, Next.js 15, LangSmith | Unit + integration smoke tests | Establishes end-to-end streaming contract & telemetry |
-| **P1: ReAct Research Agent** | Single-Agent Reasoning | `create_react_agent`, Tavily Search, OpenRouter | 30 multi-hop Q&A benchmark | Foundational tool-calling loop and token cost profiling |
-| **P2: Production RAG** | Retrieval & Reranking | Semantic Chunking, Qdrant, Cohere Rerank | Faithfulness & Context-Precision evals | Dense + BM25 hybrid search with citation grounding |
-| **P3: Conversational Memory** | Multi-Tier State Store | LangGraph `MemorySaver` + PostgreSQL Store | 20 multi-turn recall benchmarks | Thread vs cross-thread profile memory + GDPR purge |
-| **P4: Multi-Agent Supervisor** | Hierarchical Orchestration | LangGraph Subgraphs, `Command` handoffs | 15 collaborative research tasks | Task delegation across Researcher, Coder, and Writer |
-| **P5: HITL Approval Workflow** | Human-in-the-Loop Safety | LangGraph `interrupt()`, Resumable Checkpoints | 10 destructive mutation scenarios | Interactive approval gates before database writes |
-| **P6: MCP Tool Server** | Protocol-Driven Tooling | Python `mcp` SDK, `langchain-mcp-adapters` | 12 cross-tool workflow evaluations | Standardized tool discovery over stdio and HTTP |
-| **P7: Deep Research Agent** | Long-Horizon Autonomy | Parallel `Send` API, Context Offloading | LLM-as-a-Judge report rubrics | Claude Code / Devin style autonomous decomposition |
-| **P8: Structured-Output Agent** | Typed Schema Extraction | Pydantic v2, Retry Prompt Injection | 30 malformed input edge cases | Guaranteed schema conformance for real system writes |
-| **P9: Eval & Observability** | CI/CD Quality Gates | LangSmith `evaluate()`, Trajectory Matching | Meta-evals against human labels | Blocks regressions in accuracy, safety, and latency |
-| **P10: Production Capstone** | Full-Stack Deployment | Docker, FastAPI, Rate Limiting, Sentry | Locust load tests + online evals | Production-hardened agent deployment with monitoring |
+| **[P0: Foundation & Smoke](agents/P0-smoke/)** | Shared Infra Validation | FastAPI, SSE Bridge, Next.js 15, LangSmith | Unit + integration smoke tests | ✅ Completed |
+| **[P1: ReAct Research Agent](agents/P1-react-agent/)** | Single-Agent Reasoning | `create_react_agent`, Tavily Search, OpenRouter | 30 multi-hop Q&A benchmark (94.7% recall) | ✅ Completed |
+| **P2: Production RAG** | Retrieval & Reranking | Semantic Chunking, Qdrant, Cohere Rerank | Faithfulness & Context-Precision evals | ⏳ Planned |
+| **P3: Conversational Memory** | Multi-Tier State Store | LangGraph `MemorySaver` + PostgreSQL Store | 20 multi-turn recall benchmarks | ⏳ Planned |
+| **P4: Multi-Agent Supervisor** | Hierarchical Orchestration | LangGraph Subgraphs, `Command` handoffs | 15 collaborative research tasks | ⏳ Planned |
+| **P5: HITL Approval Workflow** | Human-in-the-Loop Safety | LangGraph `interrupt()`, Resumable Checkpoints | 10 destructive mutation scenarios | ⏳ Planned |
+| **P6: MCP Tool Server** | Protocol-Driven Tooling | Python `mcp` SDK, `langchain-mcp-adapters` | 12 cross-tool workflow evaluations | ⏳ Planned |
+| **P7: Deep Research Agent** | Long-Horizon Autonomy | Parallel `Send` API, Context Offloading | LLM-as-a-Judge report rubrics | ⏳ Planned |
+| **P8: Structured-Output Agent** | Typed Schema Extraction | Pydantic v2, Retry Prompt Injection | 30 malformed input edge cases | ⏳ Planned |
+| **P9: Eval & Observability** | CI/CD Quality Gates | LangSmith `evaluate()`, Trajectory Matching | Meta-evals against human labels | ⏳ Planned |
+| **P10: Production Capstone** | Full-Stack Deployment | Docker, FastAPI, Rate Limiting, Sentry | Locust load tests + online evals | ⏳ Planned |
 
 ---
 
@@ -80,7 +80,13 @@ LearnAgenticAI/
 │   │   ├── src/P0_smoke/          # Server and agent graph implementation
 │   │   ├── tests/                 # Unit and integration test suites
 │   │   └── pyproject.toml         # Agent package definition
-│   └── ...                        # P1 through P10 agent packages
+│   ├── P1-react-agent/            # Autonomous ReAct research agent (Tavily + web reading)
+│   │   ├── src/P1_react_agent/    # ReAct graph, prompts, and SSE bridge
+│   │   ├── data/                  # 30-question multi-hop eval dataset
+│   │   ├── tests/                 # Unit, integration, and eval test suites
+│   │   ├── eval.py                # Offline evaluation CLI benchmark
+│   │   └── pyproject.toml         # Agent package definition
+│   └── ...                        # P2 through P10 agent packages
 ├── apps/
 │   └── chat-ui/                   # Next.js 15 chat shell with Tailwind CSS & Lucide icons
 │       ├── app/                   # App Router pages and health routes
