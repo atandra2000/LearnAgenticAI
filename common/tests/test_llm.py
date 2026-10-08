@@ -18,7 +18,7 @@ def test_model_id_for_known_tasks() -> None:
     assert model_id_for("reasoning") == "deepseek/deepseek-v4-flash-0731"
     assert model_id_for("tools") == "openai/gpt-4o"
     assert model_id_for("local") == "ollama/llama-3.3-70b-versatile"
-    assert model_id_for("judge") == "anthropic/claude-opus-4"
+    assert model_id_for("judge") == "anthropic/claude-opus-5.5"
     assert model_id_for("cheap") == "openai/gpt-4o-mini"
 
 

@@ -46,6 +46,10 @@ async def _execute_tavily_search(query: str, max_results: int = 5) -> dict[str, 
 async def tavily_search(query: str, max_results: int = 5) -> str:
     """Search the public web for real-time information, facts, news, or technical documentation.
 
+    Use when the question requires real-time, external, or detailed technical
+    facts. Prefer targeted queries. If a snippet is incomplete or names a
+    promising source URL, follow up with read_page on that URL.
+
     Args:
         query: The search query string.
         max_results: Maximum number of search results to return (default: 5).

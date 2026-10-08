@@ -57,3 +57,6 @@ logs/
 
 # Serena tool state
 .serena/
+
+.claude/
+.codegraph/
