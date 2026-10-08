@@ -29,7 +29,7 @@ _MODEL_TABLE: dict[TaskName, tuple[str, str]] = {
     "reasoning": ("deepseek", "deepseek-v4-flash-0731"),
     "tools": ("openai", "gpt-4o"),
     "local": ("ollama", "llama-3.3-70b-versatile"),
-    "judge": ("anthropic", "claude-opus-4"),
+    "judge": ("anthropic", "claude-opus-5.5"),
     "cheap": ("openai", "gpt-4o-mini"),
 }
 
